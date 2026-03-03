@@ -10,123 +10,154 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+    
+        /* ===== THEME PREMENNÉ ===== */
         :root {
-            --primary: #0f172a;
-            --secondary: #3b82f6;
-            --accent: #8b5cf6;
-            --danger: #ef4444;
+            /* Dark theme (predvolený) */
+            --bg-primary: #0b1120;
+            --bg-secondary: #1e293b;
+            --surface: #2d3a4f;
+            --surface-light: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
             --success: #10b981;
             --warning: #f59e0b;
-            --purple: #8b5cf6;
-            --gray: #64748b;
-            --light: #f8fafc;
-            --dark: #020617;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --danger: #ef4444;
+            --card-bg: #1e293b;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            --nav-link-bg: rgba(255, 255, 255, 0.05);
         }
-
+    
+        /* Light theme */
+        body.light-theme {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --surface: #f1f5f9;
+            --surface-light: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --card-bg: #ffffff;
+            --border: rgba(0, 0, 0, 0.1);
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --nav-link-bg: rgba(0, 0, 0, 0.05);
+        }
+    
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--gradient-1);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            padding: 24px;
+            transition: background-color 0.3s, color 0.3s;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="white"/></svg>') repeat;
-            pointer-events: none;
-            z-index: 0;
-        }
-
+    
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: var(--bg-secondary);
             border-radius: 32px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow);
             overflow: hidden;
-            position: relative;
-            z-index: 1;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            transition: background-color 0.3s, border-color 0.3s;
         }
-
+    
+        /* Header */
         header {
-            background: var(--primary);
-            color: white;
-            padding: 40px 50px;
+            background: var(--surface);
+            padding: 48px 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            transition: background-color 0.3s;
         }
-
-        header::before {
-            content: '📚';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            font-size: 300px;
-            opacity: 0.1;
-            transform: rotate(15deg);
+    
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+    
+        .theme-toggle {
+            background: var(--nav-link-bg);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+    
+        .theme-toggle:hover {
+            background: var(--accent);
             color: white;
+            border-color: var(--accent);
         }
-
+    
         h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #fff, #a5f3fc);
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
         }
-
+    
         .subtitle {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 20px;
-            border-radius: 100px;
+            margin: 0 auto 24px;
         }
-
+    
         .nav-bar {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             margin-top: 20px;
         }
-
+    
         .nav-link {
-            color: white;
+            color: var(--text-primary);
             text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 24px;
+            border-radius: 40px;
+            background: var(--nav-link-bg);
+            border: 1px solid var(--border);
             font-weight: 500;
-            transition: all 0.3s;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
-
+    
         .nav-link:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
             transform: translateY(-2px);
         }
-
+    
+        /* Main */
         main {
-            padding: 50px;
+            padding: 48px 40px;
         }
-
+    
         .answers-header {
             display: flex;
             justify-content: space-between;
@@ -135,15 +166,25 @@
             flex-wrap: wrap;
             gap: 20px;
         }
-
+    
         .answers-header h2 {
             font-size: 2rem;
-            color: var(--dark);
+            font-weight: 600;
+            color: var(--text-primary);
         }
-
+    
+        .file-info {
+            background: var(--surface);
+            padding: 10px 24px;
+            border-radius: 40px;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+    
+        /* Upload Area */
         .upload-area {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border: 3px dashed var(--secondary);
+            background: var(--surface);
+            border: 2px dashed var(--border);
             border-radius: 30px;
             padding: 40px;
             text-align: center;
@@ -151,106 +192,125 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-
+    
         .upload-area:hover {
-            background: #e2e8f0;
-            border-color: var(--purple);
+            border-color: var(--accent);
+            background: var(--surface-light);
         }
-
+    
         .upload-icon {
             font-size: 60px;
-            color: var(--secondary);
+            color: var(--text-secondary);
             margin-bottom: 20px;
         }
-
+    
         .upload-area h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: var(--text-primary);
         }
-
+    
         .upload-area p {
-            color: var(--gray);
+            color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
-
-        .file-info {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 50px;
+    
+        .btn {
             display: inline-block;
-            color: var(--gray);
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            text-align: center;
+            border: 1px solid transparent;
         }
-
+    
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px var(--accent);
+        }
+    
+        .btn:active {
+            transform: translateY(0);
+        }
+    
+        /* PDF List */
         .pdf-list {
-            background: white;
+            background: var(--surface);
             border-radius: 24px;
             padding: 30px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
             margin-bottom: 40px;
         }
-
+    
         .pdf-list h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
+    
         .pdf-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
-
+    
         .pdf-card {
-            background: #f8fafc;
+            background: var(--card-bg);
             border-radius: 18px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             transition: all 0.3s;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
         }
-
+    
         .pdf-card:hover {
+            border-color: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px -8px var(--secondary);
-            border-color: var(--secondary);
+            box-shadow: 0 10px 20px -8px rgba(59, 130, 246, 0.3);
         }
-
+    
         .pdf-icon {
             font-size: 40px;
             color: var(--danger);
         }
-
+    
         .pdf-info {
             flex: 1;
         }
-
+    
         .pdf-name {
             font-weight: 600;
             margin-bottom: 5px;
-            color: var(--dark);
+            color: var(--text-primary);
         }
-
+    
         .pdf-size {
             font-size: 0.85rem;
-            color: var(--gray);
+            color: var(--text-secondary);
         }
-
+    
         .pdf-actions {
             display: flex;
             gap: 10px;
         }
-
+    
         .pdf-btn {
-            background: white;
-            border: none;
+            background: var(--surface-light);
+            border: 1px solid var(--border);
             width: 40px;
             height: 40px;
             border-radius: 12px;
@@ -259,163 +319,165 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--gray);
-            border: 1px solid #e2e8f0;
+            color: var(--text-secondary);
         }
-
+    
         .pdf-btn:hover {
-            background: var(--secondary);
+            background: var(--accent);
             color: white;
-            border-color: var(--secondary);
+            border-color: var(--accent);
         }
-
+    
         .pdf-btn.delete:hover {
             background: var(--danger);
-            color: white;
         }
-
+    
+        .no-pdfs {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+    
+        .no-pdfs .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+    
+        /* Answers Section */
         .answers-section {
-            background: white;
+            background: var(--surface);
             border-radius: 24px;
             padding: 30px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
         }
-
+    
         .answers-tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-
+    
         .tab-btn {
             padding: 12px 25px;
-            border: none;
-            background: #f1f5f9;
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface-light);
+            border-radius: 40px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            color: var(--gray);
+            transition: all 0.2s;
+            color: var(--text-secondary);
         }
-
+    
         .tab-btn:hover {
-            background: #e2e8f0;
-        }
-
-        .tab-btn.active {
-            background: var(--secondary);
+            background: var(--accent);
             color: white;
+            border-color: var(--accent);
         }
-
+    
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+    
         .answers-content {
             display: none;
         }
-
+    
         .answers-content.active {
             display: block;
         }
-
+    
         .answer-item {
-            background: #f8fafc;
+            background: var(--card-bg);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 15px;
             border-left: 4px solid var(--success);
+            border: 1px solid var(--border);
         }
-
-        .answer-item.correct {
-            border-left-color: var(--success);
-        }
-
+    
         .answer-question {
             font-weight: 600;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--text-primary);
         }
-
+    
         .answer-options {
             display: grid;
             gap: 10px;
         }
-
+    
         .answer-option {
             padding: 10px 15px;
-            background: white;
-            border-radius: 10px;
+            background: var(--surface);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
+            border: 1px solid var(--border);
         }
-
+    
         .answer-option.correct-answer {
-            background: #d1fae5;
-            border: 1px solid var(--success);
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--success);
         }
-
+    
         .answer-marker {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
         }
-
+    
         .answer-marker.correct {
             background: var(--success);
             color: white;
         }
-
-        .no-pdfs {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--gray);
-        }
-
-        .no-pdfs .icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
+    
         footer {
             text-align: center;
-            padding: 25px;
-            background: var(--primary);
-            color: white;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            background: var(--surface);
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
         }
-
+    
         .footer-links {
-            margin-top: 10px;
+            margin-top: 15px;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-
+    
         .footer-links a {
-            color: white;
+            color: var(--text-secondary);
             text-decoration: none;
-            opacity: 0.8;
         }
-
+    
         .footer-links a:hover {
-            opacity: 1;
+            color: var(--accent);
         }
-
+    
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+            body { padding: 12px; }
+            h1 { font-size: 2.4rem; }
             .answers-header { flex-direction: column; text-align: center; }
-            .upload-area { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="header-top">
+                <div class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</div>
+            </div>
             <h1>📚 Správne odpovede</h1>
             <p class="subtitle">Prehľad správnych odpovedí a študijné materiály</p>
             <div class="nav-bar">
@@ -495,7 +557,7 @@
         </main>
 
         <footer>
-            <p>© 2026 ELTEC Certifikačný systém</p>
+            <p>© 2026 ELTEC Certifikačný systém - Džanči</p>
             <div class="footer-links">
                 <a href="index.html">Hlavná stránka</a>
                 <a href="spravne_odpovede.html">Správne odpovede</a>
@@ -2550,6 +2612,27 @@
                 fileInput.value = '';
             });
         });
+    </script>
+    <script>
+        // Theme switcher
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            document.getElementById('themeToggle').textContent = isLight ? '☀️' : '🌙';
+        }
+    
+        // Načítať uložený theme
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                document.getElementById('themeToggle').textContent = '☀️';
+            } else {
+                document.getElementById('themeToggle').textContent = '🌙';
+            }
+        })();
     </script>
 </body>
 </html>
