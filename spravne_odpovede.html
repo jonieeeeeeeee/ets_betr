@@ -14,9 +14,7 @@
             box-sizing: border-box;
         }
     
-        /* ===== THEME PREMENNÉ ===== */
         :root {
-            /* Dark theme (predvolený) */
             --bg-primary: #0b1120;
             --bg-secondary: #1e293b;
             --surface: #2d3a4f;
@@ -34,7 +32,6 @@
             --nav-link-bg: rgba(255, 255, 255, 0.05);
         }
     
-        /* Light theme */
         body.light-theme {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
@@ -64,21 +61,19 @@
         }
     
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             background: var(--bg-secondary);
             border-radius: 32px;
             box-shadow: var(--shadow);
             overflow: hidden;
             border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
             transition: background-color 0.3s, border-color 0.3s;
         }
     
-        /* Header */
         header {
             background: var(--surface);
-            padding: 48px 40px;
+            padding: 32px 40px;
             text-align: center;
             border-bottom: 1px solid var(--border);
             transition: background-color 0.3s;
@@ -87,7 +82,7 @@
         .header-top {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
     
         .theme-toggle {
@@ -112,33 +107,33 @@
         }
     
         h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, var(--text-primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
     
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
         }
     
         .nav-bar {
             display: flex;
             justify-content: center;
             gap: 16px;
-            margin-top: 20px;
+            margin-top: 16px;
         }
     
         .nav-link {
             color: var(--text-primary);
             text-decoration: none;
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 40px;
             background: var(--nav-link-bg);
             border: 1px solid var(--border);
@@ -156,138 +151,65 @@
             transform: translateY(-2px);
         }
     
-        /* Main */
-        main {
-            padding: 48px 40px;
-        }
-    
-        .answers-header {
+        /* DVOJSTĹPCOVÝ LAYOUT */
+        .two-columns {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-    
-        .answers-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-    
-        .file-info {
-            background: var(--surface);
-            padding: 10px 24px;
-            border-radius: 40px;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-    
-        /* Upload Area */
-        .upload-area {
-            background: var(--surface);
-            border: 2px dashed var(--border);
-            border-radius: 30px;
+            gap: 24px;
             padding: 40px;
-            text-align: center;
-            margin-bottom: 40px;
-            transition: all 0.3s;
-            cursor: pointer;
         }
     
-        .upload-area:hover {
-            border-color: var(--accent);
-            background: var(--surface-light);
+        /* Ľavý stĺpec - PDF materiály */
+        .left-column {
+            flex: 0 0 380px;
+            position: sticky;
+            top: 24px;
+            align-self: start;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
         }
     
-        .upload-icon {
-            font-size: 60px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
+        /* Pravý stĺpec - odpovede */
+        .right-column {
+            flex: 1;
+            min-width: 0;
         }
     
-        .upload-area h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+        /* Scrollbar pre ľavý stĺpec */
+        .left-column::-webkit-scrollbar {
+            width: 6px;
         }
     
-        .upload-area p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-    
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 40px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            text-align: center;
-            border: 1px solid transparent;
-        }
-    
-        .btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px var(--accent);
-        }
-    
-        .btn:active {
-            transform: translateY(0);
-        }
-    
-        /* PDF List */
-        .pdf-list {
+        .left-column::-webkit-scrollbar-track {
             background: var(--surface);
-            border-radius: 24px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            margin-bottom: 40px;
+            border-radius: 10px;
         }
     
-        .pdf-list h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .left-column::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
         }
     
-        .pdf-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-    
+        /* Karty v ľavom stĺpci */
         .pdf-card {
             background: var(--card-bg);
             border-radius: 18px;
-            padding: 20px;
+            padding: 18px;
             display: flex;
             align-items: center;
             gap: 15px;
             transition: all 0.3s;
             border: 1px solid var(--border);
+            margin-bottom: 12px;
         }
     
         .pdf-card:hover {
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateX(4px);
             box-shadow: 0 10px 20px -8px rgba(59, 130, 246, 0.3);
         }
     
         .pdf-icon {
-            font-size: 40px;
+            font-size: 36px;
             color: var(--danger);
         }
     
@@ -297,32 +219,34 @@
     
         .pdf-name {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: var(--text-primary);
+            font-size: 0.95rem;
         }
     
         .pdf-size {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
         }
     
         .pdf-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
     
         .pdf-btn {
             background: var(--surface-light);
             border: 1px solid var(--border);
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--text-secondary);
+            font-size: 1rem;
         }
     
         .pdf-btn:hover {
@@ -335,52 +259,95 @@
             background: var(--danger);
         }
     
-        .no-pdfs {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-secondary);
-        }
-    
-        .no-pdfs .icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-    
-        /* Answers Section */
-        .answers-section {
+        .upload-area {
             background: var(--surface);
-            border-radius: 24px;
-            padding: 30px;
-            border: 1px solid var(--border);
+            border: 2px dashed var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
     
+        .upload-area:hover {
+            border-color: var(--accent);
+            background: var(--surface-light);
+        }
+    
+        .upload-icon {
+            font-size: 40px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+    
+        .upload-area h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+    
+        .upload-area p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+    
+        .btn-small {
+            padding: 8px 16px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+    
+        .btn-small:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+    
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+    
+        hr {
+            border-color: var(--border);
+            margin: 16px 0;
+        }
+    
+        /* Taby v pravom stĺpci */
         .answers-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 8px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
         }
     
         .tab-btn {
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: 1px solid var(--border);
             background: var(--surface-light);
             border-radius: 40px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--text-secondary);
         }
     
-        .tab-btn:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-    
-        .tab-btn.active {
+        .tab-btn:hover, .tab-btn.active {
             background: var(--accent);
             color: white;
             border-color: var(--accent);
@@ -397,46 +364,53 @@
         .answer-item {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--success);
+            padding: 18px;
+            margin-bottom: 14px;
             border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+    
+        .answer-item:hover {
+            border-color: var(--accent);
         }
     
         .answer-question {
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--text-primary);
+            font-size: 0.95rem;
         }
     
         .answer-options {
             display: grid;
-            gap: 10px;
+            gap: 8px;
         }
     
         .answer-option {
-            padding: 10px 15px;
+            padding: 8px 12px;
             background: var(--surface);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
             border: 1px solid var(--border);
+            font-size: 0.9rem;
         }
     
         .answer-option.correct-answer {
-            background: rgba(16, 185, 129, 0.15);
+            background: rgba(16, 185, 129, 0.12);
             border-color: var(--success);
         }
     
         .answer-marker {
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.8rem;
         }
     
         .answer-marker.correct {
@@ -444,17 +418,30 @@
             color: white;
         }
     
+        .no-pdfs {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+        }
+    
+        .no-pdfs .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+    
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             background: var(--surface);
             color: var(--text-secondary);
             border-top: 1px solid var(--border);
+            font-size: 0.85rem;
         }
     
         .footer-links {
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -469,10 +456,21 @@
             color: var(--accent);
         }
     
-        @media (max-width: 768px) {
-            body { padding: 12px; }
-            h1 { font-size: 2.4rem; }
-            .answers-header { flex-direction: column; text-align: center; }
+        @media (max-width: 1000px) {
+            .two-columns {
+                flex-direction: column;
+            }
+            .left-column {
+                flex: auto;
+                position: relative;
+                max-height: none;
+            }
+            body {
+                padding: 12px;
+            }
+            main {
+                padding: 0;
+            }
         }
     </style>
 </head>
@@ -490,75 +488,42 @@
             </div>
         </header>
 
-        <main>
-            <div class="answers-header">
-                <h2>Študijné materiály</h2>
-                <span class="file-info">📁 Podporované formáty: PDF</span>
-            </div>
-
-            <!-- Upload oblasť -->
-            <div class="upload-area" id="uploadArea">
-                <div class="upload-icon">📤</div>
-                <h3>Nahrajte PDF súbory</h3>
-                <p>Kliknite sem alebo presuňte súbory myšou</p>
-                <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
-                <button class="btn" onclick="document.getElementById('fileInput').click()">Vybrať súbory</button>
-            </div>
-
-            <!-- Zoznam nahraných PDF -->
-            <div class="pdf-list">
-                <h3>📁 Nahrané materiály</h3>
-                <div id="pdfGrid" class="pdf-grid">
-                    <!-- Sem sa budú dynamicky pridávať PDF karty -->
+        <div class="two-columns">
+            <!-- ĽAVÝ STĹPEC - PDF MATERIÁLY -->
+            <div class="left-column">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📤</div>
+                    <h4>Nahrajte PDF súbory</h4>
+                    <p>Kliknite sem alebo presuňte súbory</p>
+                    <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+                    <button class="btn-small" onclick="document.getElementById('fileInput').click()">Vybrať súbory</button>
                 </div>
-                <div id="noPdfsMessage" class="no-pdfs">
-                    <div class="icon">📭</div>
-                    <h3>Žiadne nahrané súbory</h3>
-                    <p>Nahrajte PDF súbory pre štúdium</p>
-                </div>
+
+                <div class="section-title">📌 Trvalé materiály</div>
+                <div id="permanentPdfList"></div>
+
+                <hr>
+                <div class="section-title">📁 Vami nahrané</div>
+                <div id="userPdfList"></div>
             </div>
 
-            <!-- Správne odpovede podľa testov -->
-            <div class="answers-section">
+            <!-- PRAVÝ STĹPEC - ODPOVEDE -->
+            <div class="right-column">
                 <div class="answers-tabs">
-                    <button class="tab-btn active" onclick="showAnswersTab('A')">Test A</button>
-                    <button class="tab-btn" onclick="showAnswersTab('B')">Test B</button>
-                    <button class="tab-btn" onclick="showAnswersTab('C')">Test C</button>
-                    <button class="tab-btn" onclick="showAnswersTab('D')">Test D</button>
-                    <button class="tab-btn" onclick="showAnswersTab('LEG')">Legislatíva</button>
+                    <button class="tab-btn active" onclick="showAnswersTab('A')">📘 Test A</button>
+                    <button class="tab-btn" onclick="showAnswersTab('B')">📗 Test B</button>
+                    <button class="tab-btn" onclick="showAnswersTab('C')">📕 Test C</button>
+                    <button class="tab-btn" onclick="showAnswersTab('D')">📙 Test D</button>
+                    <button class="tab-btn" onclick="showAnswersTab('LEG')">⚖️ Legislatíva</button>
                 </div>
 
-                <!-- Test A -->
-                <div id="answersA" class="answers-content active">
-                    <h3 style="margin-bottom: 20px;">Test A - Elektrotechnické merania</h3>
-                    <div id="answersListA"></div>
-                </div>
-
-                <!-- Test B -->
-                <div id="answersB" class="answers-content">
-                    <h3 style="margin-bottom: 20px;">Test B - Ochranné opatrenia</h3>
-                    <div id="answersListB"></div>
-                </div>
-
-                <!-- Test C -->
-                <div id="answersC" class="answers-content">
-                    <h3 style="margin-bottom: 20px;">Test C - Bezpečnosť práce</h3>
-                    <div id="answersListC"></div>
-                </div>
-
-                <!-- Test D -->
-                <div id="answersD" class="answers-content">
-                    <h3 style="margin-bottom: 20px;">Test D - Prvá pomoc</h3>
-                    <div id="answersListD"></div>
-                </div>
-
-                <!-- Test LEG -->
-                <div id="answersLEG" class="answers-content">
-                    <h3 style="margin-bottom: 20px;">Test Legislatíva</h3>
-                    <div id="answersListLEG"></div>
-                </div>
+                <div id="answersA" class="answers-content active"><div id="answersListA"></div></div>
+                <div id="answersB" class="answers-content"><div id="answersListB"></div></div>
+                <div id="answersC" class="answers-content"><div id="answersListC"></div></div>
+                <div id="answersD" class="answers-content"><div id="answersListD"></div></div>
+                <div id="answersLEG" class="answers-content"><div id="answersListLEG"></div></div>
             </div>
-        </main>
+        </div>
 
         <footer>
             <p>© 2026 ELTEC Certifikačný systém - Džanči</p>
@@ -566,12 +531,12 @@
                 <a href="index.html">Hlavná stránka</a>
                 <a href="spravne_odpovede.html">Správne odpovede</a>
             </div>
-            <p>Posledný update: 22.4.2026</p>
+            <p> Posledný update: 22.4.2026 - 10:51</p>
         </footer>
     </div>
 
     <script>
-        // ===================== DATABÁZA OTÁZOK (kópia z hlavnej stránky) =====================
+        // ===================== DATABÁZA OTÁZOK =====================
         const questionsDatabase = {
             'A': [
                     {
@@ -1821,7 +1786,7 @@
                 }
             ],
             'D': 
-            [
+                [
                     {
                         "id": "D_1", "chapter": "D",
                         "question": "Existuje určitý bod (prah citlivosti) po prekročení ktorého organizmus začne reagovať na pôsobenie elektrickej energie. Do akej hranice je organizmus necitlivý na pôsobenie elektrickej energie?",
@@ -2040,691 +2005,672 @@
                         "correct": [0], "type": "single"
                     }
                 ],
-            'LEG': [
-                // Oficiálnych 57 otázok z LEGislatívy podľa zoznamu
-                {
-                    id: "LEG_01", chapter: "LEG",
-                    question: "Ako podľa Vyhlášky č.508/09 rozdeľujeme elektrické zariadenia?",
-                    options: [
-                        "skupina A (neohrozujúca) a skupina B (ohrozujúca)",
-                        "skupina A a B - elektrické zariadenia s vyššou mierou ohrozenia",
-                        "skupina C - elektrické zariadenia s nižšou mierou ohrozenia",
-                        "elektrické zariadenia nové a elektrické zariadenia rekonštruované"
-                    ],
-                    correct: [1, 2], type: "multi"
-                },
-                {
-                    id: "LEG_02", chapter: "LEG",
-                    question: "Ktoré elektrické zariadenia sa považujú za vyhradené?",
-                    options: [
-                        "elektrické zariadenia s automatickým riadením",
-                        "skupina A a B - elektrické zariadenia s vyššou mierou ohrozenia",
-                        "skupina C - elektrické zariadenia s nižšou mierou ohrozenia",
-                        "elektrické zariadenia obsluhované pracovníkmi bez elektrotechnického vzdelania"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_03", chapter: "LEG",
-                    question: "Vyrábať, montovať a rekonštruovať vyhradené technické zariadenia elektrické skupiny A možno iba podľa:",
-                    options: [
-                        "oprávnenia",
-                        "osvedčenej konštrukčnej dokumentácie",
-                        "sprievodnej technickej dokumentácie"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_04", chapter: "LEG",
-                    question: "Sprievodná technická dokumentácia technického zariadenia musí vždy obsahovať najmenej:",
-                    options: [
-                        "návod na jeho bezpečné používanie, údržbu a obsluhu",
-                        "údaje týkajúce sa identifikácie výrobcu",
-                        "vyhlásenie výrobcu o zhode technického zariadenia s bezpečnostnotechnickými požiadavkami"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_05", chapter: "LEG",
-                    question: "Kto vydáva organizácii oprávnenie na výrobu, montáž, rekonštrukciu, opravy, údržbu a odborné prehliadky a odborné skúšky vyhradených elektrických zariadení?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP) na základe stanoviska TI",
-                        "projektová organizácia",
-                        "Štátna skúšobňa"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_06", chapter: "LEG",
-                    question: "Kto preverí odbornú spôsobilosť organizácie na opravy vyhradených elektrických zariadení?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Orgán štátneho dozoru nad bezpečnosťou práce (IBP)",
-                        "výrobca príslušného technického zariadenia",
-                        "projektant príslušného technického zariadenia"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_07", chapter: "LEG",
-                    question: "Prehliadka a skúška technického zariadenia sa vykonáva:",
-                    options: [
-                        "po odstavení dlhšom ako 6 mesiacov",
-                        "počas prevádzky v dvojročných lehotách",
-                        "pred prvým uvedením do prevádzky po umiestnení na mieste prevádzky"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_08", chapter: "LEG",
-                    question: "Prevádzkovateľ na zaistenie bezpečnej prevádzky technického zariadenia musí zabezpečiť vypracovanie:",
-                    options: [
-                        "prevádzkových predpisov na obsluhu technického zariadenia",
-                        "prevádzkových predpisov na prevádzku vyhradeného technického zariadenia",
-                        "sprievodnej technickej dokumentácie vyhradeného technického zariadenia"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_09", chapter: "LEG",
-                    question: "Kto vydáva osvedčenie o konštrukčnej dokumentácii?",
-                    options: [
-                        "Orgán štátneho dozoru nad bezpečnosťou práce (IBP)",
-                        "Technická inšpekcia (TI)",
-                        "projektant",
-                        "Štátna skúšobňa"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_10", chapter: "LEG",
-                    question: "Čo patrí medzi povinnosti výrobcov a dodávateľov?",
-                    options: [
-                        "archivovanie troch sád originálov výrobnej dokumentácie",
-                        "vedenie dokumentácie najmenej 10 rokov",
-                        "ustanovenie organizačných štruktúr zodpovednosti a postupov výroby",
-                        "zabezpečenie prác iba odborne spôsobilým"
-                    ],
-                    correct: [2, 3], type: "multi"
-                },
-                {
-                    id: "LEG_11", chapter: "LEG",
-                    question: "Minimálne akú dokumentáciu odberateľovi dodáva výrobca alebo dodávateľ elektrických zariadení spolu s vyrobeným, zmontovaným alebo rekonštruovaným elektrickým zariadením?",
-                    options: [
-                        "sprievodnú technickú dokumentáciu",
-                        "osvedčenú konštrukčnú dokumentáciu",
-                        "zoznam modulov s uvedením ich výrobných čísel",
-                        "oprávnenie o odbornej spôsobilosti"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_12", chapter: "LEG",
-                    question: "Odbornou prehliadkou a odbornou skúškou sa preveruje:",
-                    options: [
-                        "bezpečnosť vyhradeného technického zariadenia",
-                        "súlad s osvedčením o typovej skúške",
-                        "súlad so sprievodnou technickou dokumentáciou"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_13", chapter: "LEG",
-                    question: "Kedy možno upustiť od vykonania úradných skúšok pri dovoze alebo vývoze vyhradených technických zariadení?",
-                    options: [
-                        "pri dovoze z Česka",
-                        "pri dovoze z EÚ",
-                        "ak sú v súlade so smernicami EÚ a opatrené označením CE",
-                        "ak je so zariadením sprievodná technická dokumentácia"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_14", chapter: "LEG",
-                    question: "Koho organizácia poverí obsluhou elektrických zariadení?",
-                    options: [
-                        "len odborne spôsobilé osoby",
-                        "len osoby s elektrotechnickým vzdelaním",
-                        "len dospelé osoby",
-                        "len mužov"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_15", chapter: "LEG",
-                    question: "Kto zabezpečí vykonanie predpísaných prehliadok a skúšok, bezpečnostno-technických požiadaviek a sprievodnej dokumentácie?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "organizácia, ktorá má zariadenie v prevádzke",
-                        "obsluha príslušného elektrického zariadenia"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_16", chapter: "LEG",
-                    question: "Systém opatrení zameraných na utváranie pracovných podmienok zaisťujúcich bezpečnosť a ochranu zdravia pri práci, zachovanie zdravia a pracovnej schopnosti zamestnanca je:",
-                    options: [
-                        "inšpekcia práce",
-                        "ochrana práce",
-                        "technická inšpekcia"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_17", chapter: "LEG",
-                    question: "Kto riadi výkon a vyhodnocuje výsledky typovej skúšky?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "projektant elektrického zariadenia",
-                        "výrobca elektrického zariadenia"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_18", chapter: "LEG",
-                    question: "Pre ktoré vyhradené elektrické zariadenia je potrebná typová skúška?",
-                    options: [
-                        "technické zariadenie, pri ktorom sa predpokladá sériová výroba desiatich a viacerých kusov rovnakého vyhotovenia",
-                        "nevýbušné elektrické zariadenia",
-                        "zariadenia na premenu elektrickej energie s príkonom 250kVA",
-                        "elektrické rozvody v miestnostiach na lekárske účely"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_19", chapter: "LEG",
-                    question: "Kto overuje zhody ďalších kusov EZ, na ktoré bolo vydané osvedčenie o typovej skúške, so schválenou konštrukčnou dokumentáciou typu?",
-                    options: [
-                        "Technická inšpekcia (IT)",
-                        "Revízny technik (§ 24)",
-                        "konštruktér daného výrobku",
-                        "Inšpektorát bezpečnosti práce (IBP)"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_20", chapter: "LEG",
-                    question: "Kedy sa vyhradené EZ skupiny A podrobia prvej úradnej skúške?",
-                    options: [
-                        "po 1 roku prevádzky",
-                        "po 3 rokoch prevádzky",
-                        "po 5 rokoch prevádzky",
-                        "po ukončení výroby, montáže a rekonštrukcie"
-                    ],
-                    correct: [3], type: "single"
-                },
-                {
-                    id: "LEG_21", chapter: "LEG",
-                    question: "Kedy sa najneskôr vyhradené EZ skupiny A podrobia opakovanej úradnej skúške?",
-                    options: [
-                        "po 10 rokoch prevádzky",
-                        "po 12 rokoch prevádzky",
-                        "po 15 rokoch prevádzky",
-                        "po 20 rokoch prevádzky"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_22", chapter: "LEG",
-                    question: "Na základe čoho sa robia úradné skúšky?",
-                    options: [
-                        "na základe nariadenia Technickej inšpekcie (TI)",
-                        "na základe požiadania organizácie",
-                        "na základe nariadenia Inšpektorátu bezpečnosti práce (IBP)",
-                        "na základe plánu skúšok"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_23", chapter: "LEG",
-                    question: "Kto vydá osvedčenie o úspešnom vykonaní úradnej skúšky?",
-                    options: [
-                        "skúšku vyhodnotí Technická inšpekcia (TI), osvedčenie vydá Inšpektorát bezpečnosti práce (IBP)",
-                        "skúšku vyhodnotí skúšobný technik výrobcu a osvedčenie vydá Technická inšpekcia (TI)",
-                        "Technická inšpekcia (TI) skúšku vyhodnotí aj vydá osvedčenie",
-                        "Inšpektorát bezpečnosti práce (IBP)"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_24", chapter: "LEG",
-                    question: "Základné podmienky na zaistenie bezpečnosti a ochrany zdravia pri práci ustanovuje:",
-                    options: [
-                        "Vyhláška č. 508 /2009 Z.z.",
-                        "Zákon č. 124/2006 Z.z.",
-                        "Zákon č. 330/2001 Z.z"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_25", chapter: "LEG",
-                    question: "Odmietnuť vykonať prácu, ak sa dôvodne domnieva, že je bezprostredne a vážne ohrozený jeho život alebo zdravie zamestnanec:",
-                    options: [
-                        "má právo",
-                        "môže",
-                        "nesmie"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_26", chapter: "LEG",
-                    question: "Kto potvrdí v sprievodnej dokumentácii úspešnosť úradnej skúšky a vyskúšané zariadenie označí?",
-                    options: [
-                        "Skúšobný technik výrobcu",
-                        "Elektrotechnik špecialista od výrobcu",
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_27", chapter: "LEG",
-                    question: "Akými prehliadkami a skúškami sa preveruje bezpečnosť technických zariadení, ak nie je predpísaná úradná skúška?",
-                    options: [
-                        "odbornými prehliadkami",
-                        "odbornými skúškami",
-                        "kontrolami istiacich prvkov",
-                        "prehliadky a skúšky nie sú potrebné"
-                    ],
-                    correct: [0, 1], type: "multi"
-                },
-                {
-                    id: "LEG_28", chapter: "LEG",
-                    question: "Kto vykonáva odborné prehliadky a odborné skúšky?",
-                    options: [
-                        "Revízny technik (§24)",
-                        "projektant",
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_29", chapter: "LEG",
-                    question: "Čím sú definované lehoty odborných prehliadok a odborných skúšok elektrických zariadení?",
-                    options: [
-                        "rozhodnutím Technickej inšpekcie (TI)",
-                        "bezpečnostno-technickými požiadavkami",
-                        "Vyhláškou MPaSV SR č. 508/09 Z.z.",
-                        "rozhodnutím Inšpektorátu bezpečnosti práce (IBP)"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_30", chapter: "LEG",
-                    question: "Aký doklad sa vyhotoví o odbornej prehliadke alebo odbornej skúške elektrického zariadenia?",
-                    options: [
-                        "písomný dokument (zápisnica, správa)",
-                        "nerobí sa písomný dokument",
-                        "výsledok sa listom oznámi Technickej inšpekcii (TI)",
-                        "výsledok sa listom oznámi Inšpektorátu bezpečnosti práce (IBP)"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_31", chapter: "LEG",
-                    question: "Ako sú rozdelené lehoty odborných prehliadok a odborných skúšok elektrických zariadení?",
-                    options: [
-                        "podľa druhu prostredia",
-                        "podľa druhu ochrany pred nebezpečným dotykom",
-                        "podľa druhu priestoru so zvýšeným rizikom ohrozenia osôb",
-                        "podľa príkonu elektrických zariadení"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_32", chapter: "LEG",
-                    question: "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v základnom - normálnom prostredí?",
-                    options: [
-                        "každé 3 roky",
-                        "každých 5 rokov",
-                        "každé 4 roky",
-                        "každých 10 rokov"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_33", chapter: "LEG",
-                    question: "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v mokrom prostredí?",
-                    options: [
-                        "každé 2 roky",
-                        "každé 3 roky",
-                        "každý 1 rok",
-                        "každé 4 roky"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_34", chapter: "LEG",
-                    question: "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v prostredí s nebezpečenstvom výbuchu?",
-                    options: [
-                        "každý 1 rok",
-                        "každé 2 roky",
-                        "každé 3 roky",
-                        "každé 4 roky"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_35", chapter: "LEG",
-                    question: "Čo nahrádza odbornú prehliadku alebo odbornú skúšku?",
-                    options: [
-                        "Opakovaná úradná skúška",
-                        "Typová skúška",
-                        "Prvá úradná skúška",
-                        "Nemožno ju nahradiť"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_36", chapter: "LEG",
-                    question: "Akou značkou sa označí vyhradené technické zariadenie, na ktorom sa vykonala Typová alebo Úradná skúška?",
-                    options: [
-                        "značkou je číslo certifikátu",
-                        "symbolom \"TI\" a posledné dvojčíslie roka vykonania skúšky",
-                        "symbolom \"TI\" a posledné dvojčíslie roka do ktorého skúška platí",
-                        "na zariadenie sa nič nepíše"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_37", chapter: "LEG",
-                    question: "Čím minimálne sa preukazuje odborná spôsobilosť na obsluhu vyhradených elektrických zariadení?",
-                    options: [
-                        "osvedčením",
-                        "zápisom o zaškolení podľa §20 Vyhl. č. 508/09 Z. z.",
-                        "preukazom",
-                        "vysvedčením"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_38", chapter: "LEG",
-                    question: "Čím sa preukazuje odborná spôsobilosť na vykonávanie výroby, montáže a opravy na vyhradených elektrických zariadeniach?",
-                    options: [
-                        "dokladom o elektrotechnickom vzdelaní",
-                        "dokladom o požadovanej dĺžke praxe",
-                        "osvedčením o odbornej spôsobilosti",
-                        "certifikátom"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_39", chapter: "LEG",
-                    question: "Zamestnanec používať určeným spôsobom pridelené osobné ochranné pracovné prostriedky:",
-                    options: [
-                        "je povinný",
-                        "má právo",
-                        "môže"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_40", chapter: "LEG",
-                    question: "Kto vykonáva overenie odbornej spôsobilosti Revíznych technikov (§24)?",
-                    options: [
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "Technická inšpekcia (TI)",
-                        "Štátna skúšobňa",
-                        "oprávnená vzdelávacia organizácia"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_41", chapter: "LEG",
-                    question: "Kto vykonáva overenie odbornej spôsobilosti a vydáva osvedčenie Elektrotechnikov, Samostatných elektrotechnikov a Elektrotechnikov na riadenie činnosti alebo prevádzky?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "oprávnená vzdelávacia organizácia",
-                        "zamestnávateľ"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_42", chapter: "LEG",
-                    question: "Kto môže odobrať vydané osvedčenie (za porušenie povinností)?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "oprávnená vzdelávacia organizácia",
-                        "zamestnávateľ"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_43", chapter: "LEG",
-                    question: "Akým spôsobom je možné osvedčenie po jeho odobratí znova vydať?",
-                    options: [
-                        "nie je možné znova ho vydať",
-                        "možno ho vydať na základe novej skúšky",
-                        "možno ho vydať po 3 rokoch",
-                        "možno ho vydať po 5 rokoch"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_44", chapter: "LEG",
-                    question: "Kto overuje odbornú spôsobilosť obsluhy vyhradených elektrických zariadení?",
-                    options: [
-                        "Technická inšpekcia (TI)",
-                        "Inšpektorát bezpečnosti práce (IBP)",
-                        "Revízny technik (§24)",
-                        "Samostatný elektrotechnik"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_45", chapter: "LEG",
-                    question: "Aká minimálna odborná spôsobilosť postačuje na obsluhu elektrických zariadení?",
-                    options: [
-                        "Elektrotechnik",
-                        "Poučený pracovník",
-                        "Samostatný elektrotechnik",
-                        "postačuje základné vzdelanie"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_46", chapter: "LEG",
-                    question: "Kto môže vykonať poučenie obsluhy elektrických zariadení?",
-                    options: [
-                        "referent zamestnaneckého útvaru bez elektrotechnického vzdelania",
-                        "dodávateľ elektrického zariadenia",
-                        "Samostatný elektrotechnik",
-                        "pracovník s kvalifikáciou podľa §23 a §24 Vyhl. č. 508/09 Z. z."
-                    ],
-                    correct: [3], type: "single"
-                },
-                {
-                    id: "LEG_47", chapter: "LEG",
-                    question: "Čo nesmie chýbať v poučení obsluhy elektrických zariadení?",
-                    options: [
-                        "poučenie v rozsahu vykonávaných činností",
-                        "poučenie o rozdelení pracovných zmien",
-                        "zacvičenie na poskytnutie prvej pomoci pri úraze elektrickým prúdom"
-                    ],
-                    correct: [0, 2], type: "multi"
-                },
-                {
-                    id: "LEG_48", chapter: "LEG",
-                    question: "Aké činnosti môže vykonávať Elektrotechnik na vyhradených technických zariadeniach?",
-                    options: [
-                        "činnosť v rozsahu osvedčenia",
-                        "musí dodržiavať predpisy na ochranu zdravia a majetku",
-                        "pri práci nie je ničím obmedzovaný",
-                        "musí sa riadiť bezpečnostno-technickými požiadavkami"
-                    ],
-                    correct: [0, 1, 3], type: "multi"
-                },
-                {
-                    id: "LEG_49", chapter: "LEG",
-                    question: "Aké minimálne kvalifikačné predpoklady musí spĺňať Elektrotechnik?",
-                    options: [
-                        "ukončené akékoľvek SOU",
-                        "ukončené akékoľvek ÚSO",
-                        "ukončené elektrotechnické vzdelanie",
-                        "ukončené akékoľvek vysokoškolské vzdelanie"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_50", chapter: "LEG",
-                    question: "Aké činnosti môže vykonávať Samostatný elektrotechnik na vyhradených technických zariadeniach?",
-                    options: [
-                        "samostatná činnosť v rozsahu osvedčenia",
-                        "riadiť činnosť najviac 2 Elektrotechnikov",
-                        "riadiť činnosť Poučených pracovníkov bez obmedzenia ich počtu",
-                        "riadiť prevádzku"
-                    ],
-                    correct: [0, 1, 2], type: "multi"
-                },
-                {
-                    id: "LEG_51", chapter: "LEG",
-                    question: "Aké činnosti môže vykonávať Elektrotechnik na riadenie činnosti alebo prevádzky?",
-                    options: [
-                        "riadiť činnosť Poučených pracovníkov bez obmedzenia ich počtu",
-                        "riadiť činnosť Elektrotechnikov bez obmedzenia ich počtu",
-                        "riadiť činnosť Samostatných elektrotechnikov bez obmedzenia ich počtu",
-                        "riadiť maximálne 7 Elektrotechnikov"
-                    ],
-                    correct: [0, 1, 2], type: "multi"
-                },
-                {
-                    id: "LEG_52", chapter: "LEG",
-                    question: "Ktorá doba sa započítava do dĺžky požadovanej odbornej praxe Elektrotechnika na riadenie činnosti a Revízneho technika?",
-                    options: [
-                        "doba vykonávania činnosti na zariadeniach príslušného druhu a napätia",
-                        "celková doba od nástupu do praxe",
-                        "započíta sa aj doba základnej vojenskej služby a materskej dovolenky",
-                        "doba od dovŕšenia 18 rokov"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_53", chapter: "LEG",
-                    question: "Kedy sa započíta iba polovica praxe?",
-                    options: [
-                        "ak bola odborná prax prerušená dlhšie ako 2 roky",
-                        "ak bola odborná prax prerušená dlhšie ako 3 roky",
-                        "ak bola odborná prax prerušená dlhšie ako 1 rok",
-                        "na započítanie odbornej praxe jej prerušenie nemá vplyv"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_54", chapter: "LEG",
-                    question: "Osvedčenie na vykonávanie činnosti sa vydáva na:",
-                    options: [
-                        "neurčitý čas",
-                        "päť rokov",
-                        "tri roky"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "LEG_55", chapter: "LEG",
-                    question: "Fyzická osoba, ktorá má osvedčenie na vykonávanie činnosti je povinná absolvovať aktualizačnú odbornú prípravu:",
-                    options: [
-                        "každý rok",
-                        "každých desať rokov",
-                        "každých päť rokov"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "LEG_56", chapter: "LEG",
-                    question: "Štátnu správu v oblasti inšpekcie práce vykonávajú:",
-                    options: [
-                        "Ministerstvo práce, sociálnych vecí a rodiny Slovenskej republiky, Národný inšpektorát práce a inšpektoráty práce",
-                        "Ministerstvo práce, sociálnych vecí a rodiny Slovenskej republiky a Slovenský úrad bezpečnosti práce",
-                        "Ministerstvo práce, sociálnych vecí a rodiny Slovenskej republiky, vyššie územné celky a zamestnávatelia"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "LEG_57", chapter: "LEG",
-                    question: "Úlohy bezpečnostnotechnickej služby vykonáva:",
-                    options: [
-                        "bezpečnostný technik a autorizovaný bezpečnostný technik",
-                        "inšpekcia práce",
-                        "príslušný odborný orgán"
-                    ],
-                    correct: [0], type: "single"
-                }
-            ]
+            'LEG':
+                [
+                    {
+                        "id": "LEG_1", "chapter": "LEG",
+                        "question": "Ako podľa Vyhlášky č.508/09 rozdeľujeme elektrické zariadenia?",
+                        "options": [
+                            "skupina A (neohrozujúca) a skupina B (ohrozujúca)",
+                            "skupina A a B - elektrické zariadenia s vyššou mierou ohrozenia",
+                            "skupina C - elektrické zariadenia s nižšou mierou ohrozenia",
+                            "elektrické zariadenia nové a elektrické zariadenia rekonštruované"
+                        ],
+                        "correct": [1,2], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_2", "chapter": "LEG",
+                        "question": "Ktoré elektrické zariadenia sa považujú za vyhradené?",
+                        "options": [
+                            "elektrické zariadenia s automatickým riadením",
+                            "skupina A a B - elektrické zariadenia s vyššou mierou ohrozenia",
+                            "skupina C - elektrické zariadenia s nižšou mierou ohrozenia",
+                            "elektrické zariadenia obsluhované pracovníkmi bez elektrotechnického vzdelania"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_3", "chapter": "LEG",
+                        "question": "Vyrábať, montovať a rekonštruovať vyhradené technické zariadenia elektrické skupiny A možno iba podľa:",
+                        "options": [
+                            "oprávnenia",
+                            "osvedčenej konštrukčnej dokumentácie",
+                            "sprievodnej technickej dokumentácie"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_4", "chapter": "LEG",
+                        "question": "Sprievodná technická dokumentácia technického zariadenia musí vždy obsahovať najmenej:",
+                        "options": [
+                            "návod na jeho bezpečné používanie údržbu a obsluhu",
+                            "údaje týkajúce sa identifikácie výrobcu",
+                            "vyhlásenie výrobcu o zhode technického zariadenia s bezpečnostnotechnickými požiadavkami"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_5", "chapter": "LEG",
+                        "question": "Kto vydáva organizácii oprávnenie na výrobu, montáž, rekonštrukciu, opravy, údržbu a odborné prehliadky a odborné skúšky vyhradených elektrických zariadení?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP) na základe stanoviska TI",
+                            "projektová organizácia",
+                            "Štátna skúšobňa"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_6", "chapter": "LEG",
+                        "question": "Kto preverí odbornú spôsobilosť organizácie na opravy vyhradených elektrických zariadení?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Orgán štátneho dozoru nad bezpečnosťou práce (IBP)",
+                            "výrobca príslušného technického zariadenia",
+                            "projektant príslušného technického zariadenia"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_7", "chapter": "LEG",
+                        "question": "Prehliadka a skúška technického zariadenia sa vykonáva:",
+                        "options": [
+                            "po odstavení dlhšom ako 6 mesiacov",
+                            "počas prevádzky v dvojročných lehotách",
+                            "pred prvým uvedením do prevádzky po umiestnení na mieste prevádzky"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_8", "chapter": "LEG",
+                        "question": "Prevádzkovateľ na zaistenie bezpečnej prevádzky technického zariadenia musí zabezpečiť vypracovanie:",
+                        "options": [
+                            "prevádzkových predpisov na obsluhu technického zariadenia",
+                            "prevádzkových predpisov na prevádzku vyhradeného technického zariadenia",
+                            "sprievodnej technickej dokumentácie vyhradeného technického zariadenia"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_9", "chapter": "LEG",
+                        "question": "Kto vydáva osvedčenie o konštrukčnej dokumentácii?",
+                        "options": [
+                            "Orgán štátneho dozoru nad bezpečnosťou práce (IBP)",
+                            "Technická inšpekcia (TI)",
+                            "projektant",
+                            "Štátna skúšobňa"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_10", "chapter": "LEG",
+                        "question": "Čo patrí medzi povinnosti výrobcov a dodávateľov?",
+                        "options": [
+                            "archivovanie troch sád originálov výrobnej dokumentácie",
+                            "vedenie dokumentácie najmenej 10 rokov",
+                            "ustanovenie organizačných štruktúr zodpovednosti a postupov výroby",
+                            "zabezpečenie prác iba odborne spôsobilým"
+                        ],
+                        "correct": [2,3], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_11", "chapter": "LEG",
+                        "question": "Minimálne akú dokumentáciu odberateľovi dodáva výrobca alebo dodávateľ elektrických zariadení spolu s vyrobeným, zmontovaným alebo rekonštruovaným elektrickým zariadením?",
+                        "options": [
+                            "sprievodnú technickú dokumentáciu",
+                            "osvedčenú konštrukčnú dokumentáciu",
+                            "zoznam modulov s uvedením ich výrobných čísel",
+                            "oprávnenie o odbornej spôsobilosti"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_12", "chapter": "LEG",
+                        "question": "Odbornou prehliadkou a odbornou skúškou sa preveruje:",
+                        "options": [
+                            "bezpečnosť vyhradeného technického zariadenia",
+                            "súlad s osvedčením o typovej skúške",
+                            "súlad so sprievodnou technickou dokumentáciou"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_13", "chapter": "LEG",
+                        "question": "Kedy možno upustiť od vykonania úradných skúšok pri dovoze alebo vývoze vyhradených technických zariadení?",
+                        "options": [
+                            "pri dovoze z Česka",
+                            "pri dovoze z EÚ",
+                            "ak sú v súlade so smernicami EÚ a opatrené označením CE",
+                            "ak je so zariadením sprievodná technická dokumentácia"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_14", "chapter": "LEG",
+                        "question": "Koho organizácia poverí obsluhou elektrických zariadení?",
+                        "options": [
+                            "len odborne spôsobilé osoby",
+                            "len osoby s elektrotechnickým vzdelaním",
+                            "len dospelé osoby",
+                            "len mužov"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_15", "chapter": "LEG",
+                        "question": "Kto zabezpečí vykonanie predpísaných prehliadok a skúšok, bezpečnostno-technických požiadaviek a sprievodnej dokumentácie?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "organizácia ktorá má zariadenie v prevádzke",
+                            "obsluha príslušného elektrického zariadenia"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_16", "chapter": "LEG",
+                        "question": "Systém opatrení zameraných na utváranie pracovných podmienok zaisťujúcich bezpečnosť a ochranu zdravia pri práci, zachovanie zdravia a pracovnej schopnosti zamestnanca je:",
+                        "options": [
+                            "inšpekcia práce",
+                            "ochrana práce",
+                            "technická inšpekcia"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_17", "chapter": "LEG",
+                        "question": "Kto riadi výkon a vyhodnocuje výsledky typovej skúšky?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "projektant elektrického zariadenia",
+                            "výrobca elektrického zariadenia"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_18", "chapter": "LEG",
+                        "question": "Pre ktoré vyhradené elektrické zariadenia je potrebná typová skúška?",
+                        "options": [
+                            "technické zariadenie pri ktorom sa predpokladá sériová výroba desiatich a viacerých kusov rovnakého vyhotovenia",
+                            "nevýbušné elektrické zariadenia",
+                            "zariadenia na premenu elektrickej energie s príkonom 250KVA",
+                            "eletrické rozvody v miestnostiach na lekárske účely"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_19", "chapter": "LEG",
+                        "question": "Kto overuje zhody ďaľších kusov EZ, na ktoré bolo vydané osvedčenie o typovej skúške, so schválenou konštrukčnou dokumentáciou typu?",
+                        "options": [
+                            "Technická inšpekcia (IT)",
+                            "Revízny technik (§ 24)",
+                            "konštruktér daného výrobku",
+                            "Inšpektorát bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_20", "chapter": "LEG",
+                        "question": "Kedy sa vyhradené EZ skupiny A podrobia prvej úradnej skúške?",
+                        "options": [
+                            "po 1 roku prevádzky",
+                            "po 3 rokoch prevádzky",
+                            "po 5 rokoch prevádzky",
+                            "po ukončení výroby montáže a rekonštrukcie"
+                        ],
+                        "correct": [3], "type": "single"
+                    },
+                    {
+                        "id": "LEG_21", "chapter": "LEG",
+                        "question": "Kedy sa najneskôr vyhradené EZ skupiny A podrobia opakovanej úradnej skúške?",
+                        "options": [
+                            "po 10 rokoch prevádzky",
+                            "po 12 rokoch prevádzky",
+                            "po 15 rokoch prevádzky",
+                            "po 20 rokoch prevádzky"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_22", "chapter": "LEG",
+                        "question": "Na základe čoho sa robia úradné skúšky?",
+                        "options": [
+                            "na základe nariadenia Technickej inšpekcie (TI)",
+                            "na základe požiadania organizácie",
+                            "na základe nariadenia Inšpektorátu bezpečnosti práce (IBP)",
+                            "na základe plánu skúšok"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_23", "chapter": "LEG",
+                        "question": "Kto vydá osvedčenie o úspešnom vykonaní úradnej skúšky?",
+                        "options": [
+                            "skúšku vyhodnotí Technická inšpekcia (TI) osvedčenie vydá Inšpektorát bezpečnosti práce (IBP)",
+                            "skúšku vyhodnotí skúšobný technik výrobcu a osvedčenie vydá Technická inšpekcia (TI)",
+                            "Technická inšpekcia (TI) skúšku vyhodnotí aj vydá osvedčenie",
+                            "Inšpektorát bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_24", "chapter": "LEG",
+                        "question": "Základné podmienky na zaistenie bezpečnosti a ochrany zdravia pri práci ustanovuje:",
+                        "options": [
+                            "Vyhláška č. 508/2009 Z.z.",
+                            "Zákon č. 124/2006 Z.z.",
+                            "Zákon č. 330/2001 Z.z"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_25", "chapter": "LEG",
+                        "question": "Odmietnuť vykonať prácu, ak sa dôvodne domnieva, že je bezprostredne a vážne ohrozený jeho život alebo zdravie zamestnanec:",
+                        "options": [
+                            "má právo",
+                            "môže",
+                            "nesmie"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_26", "chapter": "LEG",
+                        "question": "Kto potvrdí v sprievodnej dokumentácii úspešnosť úradnej skúšky a vyskúšané zariadenie označí?",
+                        "options": [
+                            "Skúšobný technik výrobcu",
+                            "Elektrotechnik špecialista od výrobcu",
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_27", "chapter": "LEG",
+                        "question": "Akými prehliadkami a skúškami sa preveruje bezpečnosť technických zariadení, ak nie je predpísaná úradná skúška?",
+                        "options": [
+                            "odbornými preliadkami",
+                            "odbornými skúškami",
+                            "kontrolami istiacich prvkov",
+                            "prehliadky a skúšky nie sú potrebné"
+                        ],
+                        "correct": [0,1], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_28", "chapter": "LEG",
+                        "question": "Kto vykonáva odborné prehliadky a odborné skúšky?",
+                        "options": [
+                            "Revízny technik (§24)",
+                            "projektant",
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_29", "chapter": "LEG",
+                        "question": "Čím sú definované lehoty odborných prehliadok a odborných skúšok elektrických zariadení?",
+                        "options": [
+                            "rozhodnutím Technickej inšpekcie (TI)",
+                            "bezpečnostno-technickými požiadavkami",
+                            "Vyhláškou MPaSV SR č. 508/09 Z.z.",
+                            "rozhodnutím Inšpektorátu bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_30", "chapter": "LEG",
+                        "question": "Aký doklad sa vyhotoví o odbornej prehliadke alebo odbornej skúške elektrického zariadenia?",
+                        "options": [
+                            "písomný dokument (zápisnica správa)",
+                            "nerobí sa písomný dokument",
+                            "výsledok sa listom oznámi Technickej inšpekcii (TI)",
+                            "výsledok sa listom oznámi Inšpektorátu bezpečnosti práce (IBP)"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_31", "chapter": "LEG",
+                        "question": "Ako sú rozdelené lehoty odborných prehliadok a odborných skúšok elektrických zariadení?",
+                        "options": [
+                            "podľa druhu prostredia",
+                            "podľa druhu ochrany pred nebezpečným dotykom",
+                            "podľa druhu priestoru so zvýšeným rizikom ohrozenia osôb",
+                            "podľa príkonu elektrických zariadení"
+                        ],
+                        "correct": [0,2], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_32", "chapter": "LEG",
+                        "question": "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v základnom - normálnom prostredí?",
+                        "options": [
+                            "každé 3 roky",
+                            "každých 5 rokov",
+                            "každé 4 roky",
+                            "každých 10 rokov"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_33", "chapter": "LEG",
+                        "question": "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v mokrom prostredí?",
+                        "options": [
+                            "každé 2 roky",
+                            "každé 3 roky",
+                            "každý 1 rok",
+                            "každé 4 roky"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_34", "chapter": "LEG",
+                        "question": "V akých lehotách sa vykonávajú odborné prehliadky alebo odborné skúšky elektrických zariadení v prostredí s nebezpečenstvom výbuchu?",
+                        "options": [
+                            "každý 1 rok",
+                            "každé 2 roky",
+                            "každé 3 roky",
+                            "každé 4 roky"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_35", "chapter": "LEG",
+                        "question": "Čo nahrádza odbornú prehliadku alebo odbornú skúšku?",
+                        "options": [
+                            "Opakovaná úradná skúška",
+                            "Typová skúška",
+                            "Prvá úradná skúška",
+                            "Nemožno ju nahradiť"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_36", "chapter": "LEG",
+                        "question": "Akou značkou sa označí vyhradené technické zariadenie, na ktorom sa vykonala Typová alebo Úradná skúška?",
+                        "options": [
+                            "značkou je číslo certifikátu",
+                            "symbolom \"TI\" a posledné dvojčíslie roka vykonania skúšky",
+                            "symbolom \"TI\" a posledné dvojčíslie roka do ktorého skúška platí",
+                            "na zariadenie sa nič nepíše"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_37", "chapter": "LEG",
+                        "question": "Čím minimálne sa preukazuje odborná spôsobilost' na obsluhu vyhradených elektrických zariadení?",
+                        "options": [
+                            "osvedčením",
+                            "zápisom o zaškolení podľa §20 Vyhl. č. 508/09 Z. Z.",
+                            "preukazom",
+                            "vysvedčením"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_38", "chapter": "LEG",
+                        "question": "Čím sa preukazuje odborná spôsobilosť na vykonávanie výroby, montáže a opravy na vyhradených elektrických zariadeniach?",
+                        "options": [
+                            "dokladom o elektrotechnickom vzdelaní",
+                            "dokladom o požadovanej dĺžke praxe",
+                            "osvedčením o odbornej spôsobilosti",
+                            "certifikátom"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_39", "chapter": "LEG",
+                        "question": "Zamestnanec používať určeným spôsobom pridelené osobné ochranné pracovné prostriedky:",
+                        "options": [
+                            "je povinný",
+                            "má právo",
+                            "môže"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_40", "chapter": "LEG",
+                        "question": "Kto vykonáva overenie odbornej spôsobilosti Revíznych technikov (§24)?",
+                        "options": [
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "Technická inšpekcia (TI)",
+                            "Štátna skúšobňa",
+                            "oprávnená vzdelávacia organizácia"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_41", "chapter": "LEG",
+                        "question": "Kto vykonáva overenie odbornej spôsobilosti a vydáva osvedčenie Elektrotechnikov, Samostatných elektrotechnikov a Elektrotechnikov na riadenie činnosti alebo prevádzky?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "oprávnená vzdelávacia organizácia",
+                            "zamestnávateľ"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_42", "chapter": "LEG",
+                        "question": "Kto môže odobrať vydané osvedčenie (za porušenie povinností)?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "oprávnená vzdelávacia organizácia",
+                            "zamestnávateľ"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_43", "chapter": "LEG",
+                        "question": "Akým spôsobom je možné osvedčenie po jeho odobratí znova vydať'?",
+                        "options": [
+                            "nie je možné znova ho vydať",
+                            "možno ho vydať na základe novej skúšky",
+                            "možno ho vydať po 3 rokoch",
+                            "možno ho vydať po 5 rokoch"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_44", "chapter": "LEG",
+                        "question": "Kto overuje odbornú spôsobilosť obsluhy vyhradených elektrických zariadení?",
+                        "options": [
+                            "Technická inšpekcia (TI)",
+                            "Inšpektorát bezpečnosti práce (IBP)",
+                            "Revízny technik (§24)",
+                            "Samostatný elektrotechnik"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_45", "chapter": "LEG",
+                        "question": "Aká minimálna odborná spôsobilosť postačuje na obsluhu elektrických zariadení?",
+                        "options": [
+                            "Elektrotechnik",
+                            "Poučený pracovník",
+                            "Samostatný elektrotechnik",
+                            "postačuje základné vzdelanie"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_46", "chapter": "LEG",
+                        "question": "Kto môže vykonať poučenie obsluhy elektrických zariadení?",
+                        "options": [
+                            "referent zamestnaneckého útvaru bez elektrotechnického vzdelania",
+                            "dodávateľ elektrického zariadenia",
+                            "Samostatný elektrotechnik",
+                            "pracovník s kvalifikáciou podľa §23 a §24 Vyhl. č. 508/09 Z. z."
+                        ],
+                        "correct": [2,3], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_47", "chapter": "LEG",
+                        "question": "Čo nesmie chýbať v poučení obsluhy elektrických zariadení?",
+                        "options": [
+                            "poučenie v rozsahu vykonávaných činností",
+                            "poučenie o rozdelení pracovných zmien",
+                            "zacvičenie na poskytnutie prvej pomoci pri úraze elektrickým prúdom"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_48", "chapter": "LEG",
+                        "question": "Aké činnosti môže vykonávať Elektrotechnik na vyhradených technických zariadeniach?",
+                        "options": [
+                            "činnosť v rozsahu osvedčenia",
+                            "musí dodržiavať predpisy na ochranu zdravia a majetku",
+                            "pri práci nie je ničím obmedzovaný",
+                            "musí sa riadiť bezpečnostno-technickými požiadavkami"
+                        ],
+                        "correct": [0,1,3], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_49", "chapter": "LEG",
+                        "question": "Aké minimálne kvalifikačné predpoklady musí spĺňať Elektrotechnik?",
+                        "options": [
+                            "ukončené akékoľvek SOU",
+                            "ukončené akékoľvek ÚSO",
+                            "ukončené elektrotechnické vzdelanie",
+                            "ukončené akékoľvek vysokoškolské vzdelanie"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_50", "chapter": "LEG",
+                        "question": "Aké činnosti môže vykonávať Samostatný elektrotechnik na vyhradených technických zariadeniach?",
+                        "options": [
+                            "samostatná činnosť v rozsahu osvedčenia",
+                            "riadiť činnosť najviac 2 Elektrotechnikov",
+                            "riadiť činnosť Poučených pracovníkov bez obmedzenia ich počtu",
+                            "riadiť prevádzku"
+                        ],
+                        "correct": [0,1,2], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_51", "chapter": "LEG",
+                        "question": "Aké činnosti môže vykonávať Elektrotechnik na riadenie činnosti alebo prevádzky?",
+                        "options": [
+                            "riadiť činnosť Poučených pracovníkov bez obmedzenia ich počtu",
+                            "riadiť činnosť Elektrotechnikov bez obmedzenia ich počtu",
+                            "riadiť činnosť Samostatných elektrotechnikov bez obmedzenia ich počtu",
+                            "riadiť maximálne 7 Elektrotechnikov"
+                        ],
+                        "correct": [0,1,2], "type": "multi"
+                    },
+                    {
+                        "id": "LEG_52", "chapter": "LEG",
+                        "question": "Ktorá doba sa započítava do dĺžky požadovanej odbornej praxe Elektrotechnika na riadenie činnosti a Revízneho technika?",
+                        "options": [
+                            "doba vykonávania činnosti na zariadeniach príslušného druhu a napätia",
+                            "celková doba od nástupu do praxe",
+                            "započíta sa aj doba základnej vojenskej služby a materskej dovolenky",
+                            "doba od dovŕšenia 18 rokov"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_53", "chapter": "LEG",
+                        "question": "Kedy sa započíta iba polovica praxe?",
+                        "options": [
+                            "ak bola odborná prax prerušená dlhšie ako 2 roky",
+                            "ak bola odborná prax prerušená dlhšie ako 3 roky",
+                            "ak bola odborná prax prerušená dlhšie ako 1 rok",
+                            "na započítanie odbornej praxe jej prerušenie nemá vplyvv"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_54", "chapter": "LEG",
+                        "question": "Osvedčenie na vykonávanie činnosti sa vydáva na:",
+                        "options": [
+                            "neurčitý čas",
+                            "päť rokov",
+                            "tri roky"
+                        ],
+                        "correct": [1], "type": "single"
+                    },
+                    {
+                        "id": "LEG_55", "chapter": "LEG",
+                        "question": "Fyzická osoba, ktorá má osvedčenie na vykonávanie činnosti je povinná absolvovať aktualizačnú odbornú prípravu:",
+                        "options": [
+                            "každý rok",
+                            "každých desať rokov",
+                            "každých päť rokov"
+                        ],
+                        "correct": [2], "type": "single"
+                    },
+                    {
+                        "id": "LEG_56", "chapter": "LEG",
+                        "question": "Štátnu správu v oblasti inšpekcie práce vykonávajú:",
+                        "options": [
+                            "Ministerstvo práce sociálnych vecí a rodiny Slovenskej republiky Národný inšpektorát práce a inšpektoráty práce",
+                            "Ministerstvo práce sociálnych vecí a rodiny Slovenskej republiky a Slovenský úrad bezpečnosti práce",
+                            "Ministerstvo práce sociálnych vecí a rodiny Slovenskej republiky vyššie územné celky a zamestnávatelia"
+                        ],
+                        "correct": [0], "type": "single"
+                    },
+                    {
+                        "id": "LEG_57", "chapter": "LEG",
+                        "question": "Úlohy bezpečnostnotechnickej služby vykonáva:",
+                        "options": [
+                            "bezpečnostný technik a autorizovaný bezpečnostný technik",
+                            "inšpekcia práce",
+                            "príslušný odborný orgán"
+                        ],
+                        "correct": [0], "type": "single"
+                    }
+                ]
         };
 
-        // ===================== FUNKCIE PRE ZOBRAZENIE ODPOVEDÍ =====================
+        // ===================== FUNKCIE PRE ODPOVEDE =====================
         function renderAnswers(testType, containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
-            
             const questions = questionsDatabase[testType];
             if (!questions || questions.length === 0) {
-                container.innerHTML = '<p style="color: var(--gray); text-align: center; padding: 40px;">📭 Žiadne otázky k dispozícii</p>';
+                container.innerHTML = '<div class="no-pdfs"><div class="icon">📭</div><p>Žiadne otázky k dispozícii</p></div>';
                 return;
             }
-
             let html = '';
             questions.forEach((q, index) => {
-                html += `
-                    <div class="answer-item">
-                        <div class="answer-question">${index + 1}. ${q.question}</div>
-                        <div class="answer-options">
-                `;
-                
+                html += `<div class="answer-item">
+                            <div class="answer-question">${index + 1}. ${q.question}</div>
+                            <div class="answer-options">`;
                 q.options.forEach((opt, optIndex) => {
                     const isCorrect = q.correct.includes(optIndex);
-                    html += `
-                        <div class="answer-option ${isCorrect ? 'correct-answer' : ''}">
-                            <div class="answer-marker ${isCorrect ? 'correct' : ''}">
-                                ${isCorrect ? '✓' : String.fromCharCode(65 + optIndex)}
-                            </div>
-                            <span>${String.fromCharCode(65 + optIndex)}) ${opt}</span>
-                        </div>
-                    `;
+                    html += `<div class="answer-option ${isCorrect ? 'correct-answer' : ''}">
+                                <div class="answer-marker ${isCorrect ? 'correct' : ''}">${isCorrect ? '✓' : String.fromCharCode(65 + optIndex)}</div>
+                                <span>${String.fromCharCode(65 + optIndex)}) ${opt}</span>
+                            </div>`;
                 });
-                
-                html += `
-                        </div>
-                    </div>
-                `;
+                html += `</div></div>`;
             });
-            
             container.innerHTML = html;
         }
 
         function showAnswersTab(testType) {
-            // Deaktivovať všetky taby
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Aktivovať kliknutý tab
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            
-            // Skryť všetok obsah
-            document.querySelectorAll('.answers-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Zobraziť vybraný obsah
+            document.querySelectorAll('.answers-content').forEach(content => content.classList.remove('active'));
             document.getElementById(`answers${testType}`).classList.add('active');
         }
 
-        // ===================== FUNKCIE PRE UPLOAD PDF =====================
+        // ===================== FUNKCIE PRE PDF =====================
         let pdfFiles = [];
+
+        const permanentPDFs = [
+            { name: "📘 Zhrnutie A", url: "pdfka/Zhrnutie-A.pdf" },
+            { name: "📗 Zhrnutie B", url: "pdfka/Zhrnutie-B.pdf" },
+            { name: "📕 Zhrnutie C", url: "pdfka/Zhrnutie-C.pdf" },
+            { name: "📙 Zhrnutie D", url: "pdfka/Zhrnutie-D.pdf" },
+            { name: "📓 Zhrnutie Legislatíva", url: "pdfka/Zhrnutie-leg.pdf" }
+        ];
 
         function loadSavedPDFs() {
             const saved = localStorage.getItem('pdfFiles');
-            if (saved) {
-                pdfFiles = JSON.parse(saved);
-            }
-            renderPDFGrid();
+            if (saved) pdfFiles = JSON.parse(saved);
+            renderPdfLists();
         }
 
         function savePDFs() {
@@ -2739,39 +2685,59 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        function renderPDFGrid() {
-            const grid = document.getElementById('pdfGrid');
-            const noPdfsMsg = document.getElementById('noPdfsMessage');
-            
+        function renderPdfLists() {
+            // Trvalé PDF
+            const permanentContainer = document.getElementById('permanentPdfList');
+            let permanentHtml = '';
+            permanentPDFs.forEach(pdf => {
+                permanentHtml += `
+                    <div class="pdf-card">
+                        <div class="pdf-icon">📄</div>
+                        <div class="pdf-info">
+                            <div class="pdf-name">${pdf.name}</div>
+                            <div class="pdf-size">Trvalý materiál</div>
+                        </div>
+                        <div class="pdf-actions">
+                            <button class="pdf-btn" onclick="window.open('${pdf.url}', '_blank')">🔍</button>
+                        </div>
+                    </div>
+                `;
+            });
+            permanentContainer.innerHTML = permanentHtml;
+
+            // Používateľské PDF
+            const userContainer = document.getElementById('userPdfList');
             if (pdfFiles.length === 0) {
-                grid.innerHTML = '';
-                noPdfsMsg.style.display = 'block';
-                return;
+                userContainer.innerHTML = `<div class="no-pdfs"><div class="icon">📭</div><p>Žiadne nahrané súbory</p><p style="font-size:0.8rem">Nahrajte vlastné PDF vyššie</p></div>`;
+            } else {
+                let userHtml = '';
+                pdfFiles.forEach((pdf, index) => {
+                    userHtml += `
+                        <div class="pdf-card">
+                            <div class="pdf-icon">📄</div>
+                            <div class="pdf-info">
+                                <div class="pdf-name">${pdf.name}</div>
+                                <div class="pdf-size">${pdf.size}</div>
+                            </div>
+                            <div class="pdf-actions">
+                                <button class="pdf-btn" onclick="openPDF(${index})">🔍</button>
+                                <button class="pdf-btn delete" onclick="deletePDF(${index})">🗑️</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                userContainer.innerHTML = userHtml;
             }
-            
-            noPdfsMsg.style.display = 'none';
-            
-            grid.innerHTML = pdfFiles.map((pdf, index) => `
-                <div class="pdf-card">
-                    <div class="pdf-icon">📄</div>
-                    <div class="pdf-info">
-                        <div class="pdf-name">${pdf.name}</div>
-                        <div class="pdf-size">${pdf.size}</div>
-                    </div>
-                    <div class="pdf-actions">
-                        <button class="pdf-btn" onclick="openPDF(${index})" title="Otvoriť">🔍</button>
-                        <button class="pdf-btn delete" onclick="deletePDF(${index})" title="Vymazať">🗑️</button>
-                    </div>
-                </div>
-            `).join('');
         }
 
         function openPDF(index) {
             const pdf = pdfFiles[index];
-            if (pdf.data) {
-                const blob = base64ToBlob(pdf.data, 'application/pdf');
-                const url = URL.createObjectURL(blob);
-                window.open(url, '_blank');
+            if (pdf && pdf.data) {
+                const byteCharacters = atob(pdf.data);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) byteNumbers[i] = byteCharacters.charCodeAt(i);
+                const blob = new Blob([new Uint8Array(byteNumbers)], { type: 'application/pdf' });
+                window.open(URL.createObjectURL(blob), '_blank');
             }
         }
 
@@ -2779,26 +2745,8 @@
             if (confirm('Naozaj chcete vymazať tento súbor?')) {
                 pdfFiles.splice(index, 1);
                 savePDFs();
-                renderPDFGrid();
+                renderPdfLists();
             }
-        }
-
-        function base64ToBlob(base64, type) {
-            const byteCharacters = atob(base64);
-            const byteArrays = [];
-            
-            for (let offset = 0; offset < byteCharacters.length; offset += 512) {
-                const slice = byteCharacters.slice(offset, offset + 512);
-                const byteNumbers = new Array(slice.length);
-                
-                for (let i = 0; i < slice.length; i++) {
-                    byteNumbers[i] = slice.charCodeAt(i);
-                }
-                
-                byteArrays.push(new Uint8Array(byteNumbers));
-            }
-            
-            return new Blob(byteArrays, { type: type });
         }
 
         function handleFileUpload(files) {
@@ -2806,15 +2754,14 @@
                 if (file.type === 'application/pdf') {
                     const reader = new FileReader();
                     reader.onload = function(e) {
-                        const base64Data = e.target.result.split(',')[1];
                         pdfFiles.push({
                             name: file.name,
                             size: formatFileSize(file.size),
-                            data: base64Data,
+                            data: e.target.result.split(',')[1],
                             lastModified: file.lastModified
                         });
                         savePDFs();
-                        renderPDFGrid();
+                        renderPdfLists();
                     };
                     reader.readAsDataURL(file);
                 } else {
@@ -2823,65 +2770,43 @@
             });
         }
 
-        // ===================== EVENT LISTENERS =====================
+        // ===================== SPUSTENIE =====================
         document.addEventListener('DOMContentLoaded', () => {
-            // Načítať uložené PDF
             loadSavedPDFs();
-            
-            // Renderovať odpovede pre všetky testy
             renderAnswers('A', 'answersListA');
             renderAnswers('B', 'answersListB');
             renderAnswers('C', 'answersListC');
             renderAnswers('D', 'answersListD');
             renderAnswers('LEG', 'answersListLEG');
             
-            // Upload oblasť
             const uploadArea = document.getElementById('uploadArea');
             const fileInput = document.getElementById('fileInput');
             
-            uploadArea.addEventListener('click', () => {
-                fileInput.click();
-            });
-            
-            uploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadArea.style.background = '#e2e8f0';
-            });
-            
-            uploadArea.addEventListener('dragleave', () => {
-                uploadArea.style.background = 'linear-gradient(135deg, #f8fafc, #f1f5f9)';
-            });
-            
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', (e) => e.preventDefault());
             uploadArea.addEventListener('drop', (e) => {
                 e.preventDefault();
-                uploadArea.style.background = 'linear-gradient(135deg, #f8fafc, #f1f5f9)';
                 handleFileUpload(e.dataTransfer.files);
             });
-            
             fileInput.addEventListener('change', (e) => {
                 handleFileUpload(e.target.files);
                 fileInput.value = '';
             });
         });
-    </script>
-    <script>
+
         // Theme switcher
         function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('light-theme');
-            const isLight = body.classList.contains('light-theme');
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
             document.getElementById('themeToggle').textContent = isLight ? '☀️' : '🌙';
         }
-    
-        // Načítať uložený theme
+        
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
                 document.body.classList.add('light-theme');
                 document.getElementById('themeToggle').textContent = '☀️';
-            } else {
-                document.getElementById('themeToggle').textContent = '🌙';
             }
         })();
     </script>
