@@ -572,375 +572,483 @@
         // ===================== DATABÁZA OTÁZOK (kópia z hlavnej stránky) =====================
         const questionsDatabase = {
             'A': [
-                // Test A - 32 otázok
-                {
-                    id: "A_1", chapter: "A",
-                    question: "Aký je postup pripojenia ochranného vodiča v jednofázovej zásuvke v sieti TNC?",
-                    options: [
-                        "ochranný vodič najprv privedieme na pravú pracovnú dierku",
-                        "ochranný vodič najprv privedieme na ochranný kolík",
-                        "na poradí pripojenia nezáleží",
-                        "na dierku privedieme jeden vodič a na kolík druhý"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_2", chapter: "A",
-                    question: "Je zábrana priamo súčasťou elektrického zariadenia?",
-                    options: ["áno", "nie", "zábrana nie je ochrana živých častí"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_3", chapter: "A",
-                    question: "Čo vyjadruje prvé povinné číslo v označení IP?",
-                    options: [
-                        "stupeň ochrany pred vniknutím vody",
-                        "stupeň ochrany pred vniknutím cudzieho telesa",
-                        "typ materiálu krytu",
-                        "ochrana krytím sa vyjadruje symbolom PI"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_4", chapter: "A",
-                    question: "Ktorý je najnižší prakticky používaný stupeň ochrany krytím?",
-                    options: ["IP XY", "IP 2X", "IP X2", "IP XXB"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_5", chapter: "A",
-                    question: "Čo vyjadruje druhé povinné číslo v označení IP?",
-                    options: [
-                        "stupeň ochrany pred vniknutím vody",
-                        "stupeň ochrany pred vniknutím cudzieho telesa",
-                        "ochrana krytím sa vyjadruje symbolom PI",
-                        "typ materiálu krytu"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_6", chapter: "A",
-                    question: "Je lakovanie, smaltovanie alebo natretie farbou súčasťou izolácie?",
-                    options: ["áno", "nie", "žiadna izolácia neznemožní dotyk"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_7", chapter: "A",
-                    question: "Pre aké napätia musí byť navrhnutá základná izolácia?",
-                    options: [
-                        "pre menovité napätia",
-                        "pre menovité napätia a očakávané prepätia",
-                        "pre 10 násobok menovitého napätia",
-                        "pre 8 násobok menovitého napätia"
-                    ],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_8", chapter: "A",
-                    question: "Čo sa používa ako doplnková izolácia?",
-                    options: [
-                        "dvojitá alebo zosilnená izolácia",
-                        "izolačný koberec",
-                        "dielektrické rukavice",
-                        "vypínacia tyč"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_9", chapter: "A",
-                    question: "V čom spočíva ochrana odpojením od zdroja v sieti TN?",
-                    options: [
-                        "poruchové zariadenie sa odpojí od zdroja",
-                        "pri poruche sa vypne zdroj",
-                        "na odpojenie sa používa ochranný vodič",
-                        "ochranný vodič je spojený s uzlom zdroja"
-                    ],
-                    correct: [0,2,3], type: "multi"
-                },
-                {
-                    id: "A_10", chapter: "A",
-                    question: "Môže sa ochranný vodič istiť?",
-                    options: ["nesmie sa istiť", "musí sa istiť", "môže sa istiť poistkou", "môže sa istiť ističom"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_11", chapter: "A",
-                    question: "Aký má byť celkový zemný odpor nulovacích vodičov transformátora?",
-                    options: ["do 2 Ω", "do 15 Ω", "do 5 Ω", "do 20 Ω"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_12", chapter: "A",
-                    question: "Aký má byť zemný odpor pracovného uzemnenia uzla zdroja v bežných podmienkach?",
-                    options: ["do 15 Ω", "do 5 Ω", "do 2 Ω", "do 10 Ω"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_13", chapter: "A",
-                    question: "Kde sa musí uzemniť ochranný vodič v objektoch s vlastným transformátorom?",
-                    options: ["nemusí sa uzemniť", "pri hlavnom rozvádzači", "na konci odbočiek", "každých 500 m"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_14", chapter: "A",
-                    question: "V čom spočíva podstata ochrany zemnením?",
-                    options: [
-                        "neživá časť sa spojí so zemou",
-                        "zem sa používa na vedenie poruchového prúdu",
-                        "porucha sa zo zeme neodvádza",
-                        "uzol zdroja musí byť vždy uzemnený"
-                    ],
-                    correct: [0,1], type: "multi"
-                },
-                {
-                    id: "A_15", chapter: "A",
-                    question: "Je dovolené pri ochrane zemnením pripájať neživé časti na stredný vodič?",
-                    options: ["áno", "nie nikdy", "áno vždy", "nie"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_16", chapter: "A",
-                    question: "V akom čase musí vypnúť prúdový alebo napäťový chránič?",
-                    options: ["od 2 s", "do 0.2 s", "do 1 s", "do 5 s"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_17", chapter: "A",
-                    question: "Kde sa pripája vypínacia cievka napäťového chrániča?",
-                    options: ["na neživú časť", "na svoj uzemňovač", "na PEN vodič"],
-                    correct: [0,1], type: "multi"
-                },
-                {
-                    id: "A_18", chapter: "A",
-                    question: "Ktoré vodiče sa vedú cez súčtový transformátor prúdového chrániča?",
-                    options: ["všetky pracovné vodiče", "len ochranný vodič", "len fázové vodiče"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_19", chapter: "A",
-                    question: "V ktorej sieti NIE JE stredný vodič spojený so zemou?",
-                    options: ["TT", "IT", "TN", "vždy je spojený"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_20", chapter: "A",
-                    question: "Maximálne napätie oddeleného obvodu pri ochrane oddelením obvodov je:",
-                    options: ["500 V", "50 V", "1500 V", "1000 V"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_21", chapter: "A",
-                    question: "Označenie prepäťovej ochrany je:",
-                    options: ["SPD", "SDP", "PDS", "SPS"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_22", chapter: "A",
-                    question: "Typy prepäťových ochrán sú:",
-                    options: ["B C D", "A B C", "A B C D"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_23", chapter: "A",
-                    question: "Tri hlavné časti bleskozvodu sú:",
-                    options: [
-                        "zachytávacie zariadenie, skúšobné svorky, uzemňovače",
-                        "zachytávacie zariadenie, zvody, skúšobné svorky",
-                        "zachytávacie zariadenie, zvody, uzemňovače"
-                    ],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "A_24", chapter: "A",
-                    question: "Náhodné zberače bleskozvodu tvoria:",
-                    options: ["izolačné predmety", "kovové predmety mimo objektu", "kovové predmety objektu"],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "A_25", chapter: "A",
-                    question: "Vrcholový uhol ochranného kužeľa tyčového bleskozvodu je:",
-                    options: ["112°", "120°", "60°"],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_26", chapter: "A",
-                    question: "Počet zvodov bleskozvodu sa riadi:",
-                    options: [
-                        "pôdorysnými rozmermi, tvarom strechy a výškou objektu",
-                        "výškou a dĺžkou objektu",
-                        "výškou objektu a počtom rohov"
-                    ],
-                    correct: [0], type: "single"
-                },
-                {
-                    id: "A_27", chapter: "A",
-                    question: "Skúšobná svorka vonkajšieho zvodu sa montuje vo výške:",
-                    options: ["0.6 – 1.8 m", "0.6 – 2.0 m", "1.8 – 2.0 m"],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "A_28", chapter: "A",
-                    question: "Zhotovené uzemňovače bleskozvodu sa používajú:",
-                    options: ["vždy povinne", "prednostne", "ak odpor náhodných nevyhovuje"],
-                    correct: [2], type: "single"
-                },
-                {
-                    id: "A_29", chapter: "A",
-                    question: "Ako náhodné uzemňovače sa NESMÚ použiť:",
-                    options: ["kovové plášte káblov", "rozvody plynu a horľavých kvapalín", "vodovodné potrubia"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_30", chapter: "A",
-                    question: "Ako sa nazýva ochrana, kde sa všetky kovové časti spoja na rovnaký potenciál?",
-                    options: ["ochrana uzemnením", "ochrana pospájaním", "ochrana nulovaním", "ochrana bezpečným napätím"],
-                    correct: [1], type: "single"
-                },
-                {
-                    id: "A_31", chapter: "A",
-                    question: "Musí byť ochranný kolík zásuvky pri ochrane zemnením spojený so zemou?",
-                    options: ["nie", "nie je dovolené", "nezáleží", "áno"],
-                    correct: [3], type: "single"
-                },
-                {
-                    id: "A_32", chapter: "A",
-                    question: "Pri vzdušných rozvodoch sa ochranný vodič musí zemniť:",
-                    options: ["každých 100 m", "každých 200 m", "každých 500 m", "len na konci vedenia"],
-                    correct: [2], type: "single"
-                }
-            ],
-            'B': [
-                // Test B - 24 otázok
+                    {
+                        id: "A_1", chapter: "A",
+                        question: "Aký je postup pripojenia ochranného vodiča v jednofázovej zásuvke v sieti TNC?",
+                        options: [
+                            "ochranný vodič najprv privedieme na pravú pracovnú dierku",
+                            "ochranný vodič najprv privedieme na ochranný kolík",
+                            "na poradí pripojenia na dierku alebo na kolik nezáleží",
+                            "na dierku privedieme jeden vodič a na kolík druhý vodič"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_2", chapter: "A",
+                        question: "Jednou z ochrán živých častí elektrických zariadení je ochrana zábranou. Je zábrana priamo súčasťou elektrického zariadenia?",
+                        options: [
+                            "áno",
+                            "nie",
+                            "zábrana nie je ochrana živých častí elektrických zariadení"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_3", chapter: "A",
+                        question: "Stupeň ochrany krytím sa označuje symbolom IP a potom nasledujú dve povinné čísla. Čo vyjadruje prvé povinné číslo?",
+                        options: [
+                            "stupeň ochrany pred vniknutím vody",
+                            "stupeň ochrany pred vniknutím cudzieho telesa",
+                            "typ materiálu z ktorého je kryt zhotovený",
+                            "ochrana krytím sa vyjadruje symbolom PI"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_4", chapter: "A",
+                        question: "Ktorý je najnižší prakticky používaný stupeň ochrany krytím (okrem spodku poistiek a objímok žiaroviek)?",
+                        options: [
+                            "IP XY",
+                            "IP 2X",
+                            "IP X2",
+                            "IP XXB"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_5", chapter: "A",
+                        question: "Stupeň ochrany krytím sa označuje symbolom IP a potom nasledujú dve povinné čísla. Čo vyjadruje druhé povinné číslo?",
+                        options: [
+                            "stupeň ochrany pred vniknutím vody",
+                            "stupeň ochrany pred vniknutím cudzieho telesa",
+                            "ochrana krytím sa vyjadruje symbolom PI",
+                            "typ materiálu z ktorého je kryt zhotovený"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_6", chapter: "A",
+                        question: "Je lakovanie, smaltovanie alebo natretie farbou súčasťou izolácie, ktorá znemožní nebezpečný dotyk živých častí zariadenia?",
+                        options: [
+                            "áno",
+                            "nie",
+                            "žiadna izolácia neznemožní dotyk živej časti"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_7", chapter: "A",
+                        question: "Pre aké napätia musí byť navrhnutá základná izolácia?",
+                        options: [
+                            "pre menovité napätia",
+                            "pre menovité napätia a očakávané prepätia",
+                            "pre 10 násobok menovitého napätia",
+                            "pre 8 násobok menovitého napätia"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_8", chapter: "A",
+                        question: "Čo sa používa ako doplnková izolácia?",
+                        options: [
+                            "dvojitá alebo zosilnená izolácia",
+                            "izolačný koberec na stanovišti",
+                            "dielektrické rukavice galoše",
+                            "vypínacia tyč"
+                        ],
+                        correct: [1,2], type: "multi"
+                    },
+                    {
+                        id: "A_9", chapter: "A",
+                        question: "V čom spočíva ochrana odpojením od zdroja v TN sieťach?",
+                        options: [
+                            "poruchové elektrické zariadenie je odpojené od zdroja",
+                            "pri poruche je vypnutý zdroj",
+                            "na vypnutie poruchy sa použije ochranný vodič",
+                            "ochranný vodič je spojený s uzlom zdroja"
+                        ],
+                        correct: [0,2,3], type: "multi"
+                    },
+                    {
+                        id: "A_10", chapter: "A",
+                        question: "Môže sa ochranný vodič istiť?",
+                        options: [
+                            "nesmie sa istiť",
+                            "musí sa istiť",
+                            "môže sa istiť poistkou",
+                            "môže sa istiť ističom"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_11", chapter: "A",
+                        question: "Aký má byť celkový zemný odpor ochranných vodičov transformátora vrátane jeho uzemneného uzla, ak je odpor pôdy v hĺbke 1 až 3 m do 200 ohmov?",
+                        options: [
+                            "do 2 Ω",
+                            "do 15 Ω",
+                            "do 5 Ω",
+                            "do 20 Ω"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_12", chapter: "A",
+                        question: "Aký má byť zemný odpor pracovného uzemnenia uzla zdroja v bežných pôdnych podmienkach?",
+                        options: [
+                            "do 15 Ω",
+                            "do 5 Ω",
+                            "do 20 Ω",
+                            "do 10 Ω"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_13", chapter: "A",
+                        question: "Kde sa musí uzemniť ochranný vodič v sieťach TNC a TNS v objektoch s vlastným transformátorom?",
+                        options: [
+                            "nemusí sa zvlášť uzemniť",
+                            "pri hlavnom rozvádzači",
+                            "na koncoch odbočiek dlhších ako 200 m",
+                            "každých 500 m a na konci vedenia"
+                        ],
+                        correct: [1,2,3], type: "multi"
+                    },
+                    {
+                        id: "A_14", chapter: "A",
+                        question: "V čom spočíva podstata ochrany zemnením?",
+                        options: [
+                            "neživá časť elektrického zariadenia sa spojí so zemou",
+                            "zem sa používa na vedenie poruchy",
+                            "porucha sa zo zeme neodvádza",
+                            "uzol zdroja musí byť pri ochrane zemnením vždy uzemnený"
+                        ],
+                        correct: [0,1], type: "multi"
+                    },
+                    {
+                        id: "A_15", chapter: "A",
+                        question: "Je nutné, aby v sieti s uzemneným uzlom pri ochrane zemnením boli ochranné kolíky zásuviek spojené zemničom so zemou?",
+                        options: [
+                            "nie - nie je to nutné",
+                            "nie - nie je to dovolené",
+                            "nezáleží na tom",
+                            "áno - jedine tak je to správne"
+                        ],
+                        correct: [3], type: "single"
+                    },
+                    {
+                        id: "A_16", chapter: "A",
+                        question: "Je dovolené pri ochrane zemnením pripájať neživé časti elektrických zariadení na stredný vodič rozvodnej sústavy?",
+                        options: [
+                            "áno - je to dovolené",
+                            "nie - pri ochrane zemnením sa stredný vodič nikdy nepoužíva",
+                            "áno - pri ochrane zemnením sa stredný vodič vždy používa",
+                            "nie"
+                        ],
+                        correct: [3], type: "single"
+                    },
+                    {
+                        id: "A_17", chapter: "A",
+                        question: "V akom čase nastáva samočinné odpojenie poruchového zariadenia od zdroja v prípade použitia chráničov (prúdového alebo napäťového)?",
+                        options: [
+                            "v čase od 2 s",
+                            "v čase do 0.2 s",
+                            "v čase do 1 s",
+                            "v čase do 5 s"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_18", chapter: "A",
+                        question: "Kde sa pripája vypínacia cievka ochrannej spúšte napäťového chrániča?",
+                        options: [
+                            "na neživú časť chráneného zariadenia",
+                            "na svoj uzemňovač",
+                            "na vodič PEN"
+                        ],
+                        correct: [0,1], type: "multi"
+                    },
+                    {
+                        id: "A_19", chapter: "A",
+                        question: "V prúdovom chrániči je za normálneho stavu geometrický súčet pritekajúcich a odtekajúcich prúdov rovný nule. Ktoré vodiče sa vedú cez súčtový transformátor prúdového chrániča?",
+                        options: [
+                            "všetky pracovné vodiče a stredný ak je ako pracovný",
+                            "len ochranný vodič",
+                            "len fázové vodiče"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_20", chapter: "A",
+                        question: "Je stredný vodič vždy spojený cez uzol zdroja so zemou?",
+                        options: [
+                            "v sieti TT nie",
+                            "v sieti IT nie",
+                            "v sieťach TN nie",
+                            "vždy musí byť spojený so zemou"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_21", chapter: "A",
+                        question: "Ako sa volá ochrana, kde sa spoja všetky neživé časti chránených elektrických zariadení so všetkými kovovými vodivými časťami na okolí? (kovové potrubia, vane,...)",
+                        options: [
+                            "ochrana uzemnením na náhodné zemniče",
+                            "ochrana pospájaním",
+                            "ochrana nulovaním",
+                            "ochrana bezpečným napätím"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_22", chapter: "A",
+                        question: "Aké je možné najväčšie napätie oddeleného prúdového obvodu od obvodov rozvodnej sústavy v prípade ochrany oddelením obvodov?",
+                        options: [
+                            "napätie elektricky oddeleného obvodu nesmie prekročiť 500 V",
+                            "napätie elektricky oddeleného obvodu nesmie prekročiť 50 V",
+                            "napätie elektricky oddeleného obvodu nesmie prekročiť 1500 V",
+                            "napätie elektricky oddeleného obvodu nesmie prekročiť 1000 V"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_23", chapter: "A",
+                        question: "Ktorý obvod zabráni vzniku nebezpečného dotykového napätia na neživej časti chráneného elektrického zariadenia v prípade ochrany bezpečným napätím?",
+                        options: [
+                            "SELV",
+                            "PELV",
+                            "FELV",
+                            "MELVV"
+                        ],
+                        correct: [0,1,2], type: "multi"
+                    },
+                    {
+                        id: "A_24", chapter: "A",
+                        question: "Označenie prepäťovej ochrany je:",
+                        options: [
+                            "SPD",
+                            "SDP",
+                            "PDS",
+                            "SPS"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_25", chapter: "A",
+                        question: "Typy prepäťových ochrán sú:",
+                        options: [
+                            "Typ B Typ C Typ D",
+                            "Typ A Typ B Typ C",
+                            "Typ A Typ B Typ C Typ D"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_26", chapter: "A",
+                        question: "Každý bleskozvod má tieto tri hlavné časti:",
+                        options: [
+                            "zachytávacie zariadenie skúšobné svorky a uzemňovače",
+                            "zachytávacie zariadenie zvody a skúšobné svorky",
+                            "zachytávacie zariadenie zvody a uzemňovače"
+                        ],
+                        correct: [2], type: "single"
+                    },
+                    {
+                        id: "A_27", chapter: "A",
+                        question: "Náhodné zberače bleskozvodu tvoria:",
+                        options: [
+                            "izolačné predmety ktoré sú súčasťou chráneného objektu",
+                            "kovové predmety ktoré nie sú súčasťou chráneného objektu",
+                            "kovové predmety ktoré sú súčasťou chráneného objektu"
+                        ],
+                        correct: [2], type: "single"
+                    },
+                    {
+                        id: "A_28", chapter: "A",
+                        question: "Vrcholový uhol kužeľa ochranného priestoru tyčového bleskozvodu je:",
+                        options: [
+                            "112°",
+                            "120°",
+                            "60°"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_29", chapter: "A",
+                        question: "Počet zvodov bleskozvodu sa riadi:",
+                        options: [
+                            "pôdorysnými rozmermi tvarom strechy a výškou objektu",
+                            "výškou a dĺžkou objektu",
+                            "výškou objektu a počtom rohov objektu"
+                        ],
+                        correct: [0], type: "single"
+                    },
+                    {
+                        id: "A_30", chapter: "A",
+                        question: "Pri vonkajších zvodoch bleskozvodov sa skúšobná svorka montuje vo výške:",
+                        options: [
+                            "0.6 až 1.8 m nad zemou",
+                            "0.6 až 2.0 m nad zemou",
+                            "1.8 až 2.0 m nad zemou"
+                        ],
+                        correct: [1], type: "single"
+                    },
+                    {
+                        id: "A_31", chapter: "A",
+                        question: "Zhotovené uzemňovače bleskozvodov:",
+                        options: [
+                            "sa majú prednostne použiť",
+                            "sa musia prednostne použiť",
+                            "sa vyhotovujú vtedy ak odpor náhodných nevyhovuje"
+                        ],
+                        correct: [2], type: "single"
+                    },
+                    {
+                        id: "A_32", chapter: "A",
+                        question: "Ako náhodné uzemňovače bleskozvodov sa nesmú použiť:",
+                        options: [
+                            "kovové plášte káblov",
+                            "rozvody plynu horľavých kvapalín a vykurovacích médií",
+                            "vodovodné potrubia"
+                        ],
+                        correct: [1], type: "single"
+                    }
+                ],
+            'B': 
+            [
                 {
                     id: "B_1", chapter: "B",
-                    question: "Pri meraní ochrany v sieti TT",
+                    question: "Pri meraní ochrany v sieti TT:",
                     options: [
                         "ochranné uzemnenie sa spojí cez regulačný odpor R s niektorým neuzemneným krajným vodičom",
                         "pracovné uzemnenie sa spojí cez regulačný odpor R s niektorým neuzemneným krajným vodičom",
                         "ochranné uzemnenie sa spojí cez regulačný odpor R s niektorým uzemneným krajným vodičom",
                         "pracovné uzemnenie sa spojí cez regulačný odpor R s niektorým uzemneným krajným vodičom"
                     ],
-                    correct: [0], type: "single"
+                    correct: [0,1], type: "multi"
                 },
                 {
                     id: "B_2", chapter: "B",
-                    question: "Pri meraní ochrany v sieti TT sa regulačným odporom R nastaví na voltmetri V",
+                    question: "Pri meraní ochrany v sieti TT sa regulačným odporom R nastaví na voltmetri V:",
                     options: [
                         "sieťové napätie 220 V",
-                        "dovolené dotykové napätie 50 V",
-                        "ľubovoľné napätie"
+                        "dovolené dotykové - bezpečné - napätie 50 V",
+                        "ľubovoľné napätie podľa typu voltmetra"
                     ],
                     correct: [1], type: "single"
                 },
                 {
                     id: "B_3", chapter: "B",
-                    question: "Pri meraní ochrany v sieti TT sa po nastavení požadovanej hodnoty napätia na voltmetri V",
+                    question: "Pri meraní ochrany v sieti TT sa po nastavení požadovanej hodnoty napätia na voltmetri V:",
                     options: [
                         "musí vypnúť predradené istenie v požadovanom čase",
                         "nemusí vypnúť predradené istenie",
-                        "musí vypnúť v ľubovoľnom čase"
+                        "musí vypnúť predradené istenie v ľubovoľnom čase"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_4", chapter: "B",
-                    question: "Ak ostane pri meraní ochrany v sieti TT napätie na voltmetri V aj pri skrate pod hodnotou 50 V, uzemnenie",
+                    question: "Ak ostane pri meraní ochrany v sieti TT napätie na voltmetri V aj pri úplnom vyradení odporu R (skrat) pod hodnotou 50 V, tak uzemnenie:",
                     options: [
-                        "vyhovuje aj keď vypínacie prvky nevypnú",
-                        "vyhovuje len keď vypínacie prvky vypnú",
+                        "vyhovuje aj v prípade že vypínacie prvky nevypnú",
+                        "vyhovuje len v prípade že vypínacie prvky nevypnú",
                         "nevyhovuje"
                     ],
-                    correct: [0], type: "single"
+                    correct: [2], type: "single"
                 },
                 {
                     id: "B_5", chapter: "B",
-                    question: "Pri skúšaní ochrany napäťovým chráničom sa zapnutím zariadenia skúša",
+                    question: "Pri skúšaní ochrany napäťovým chráničom sa musí zapnúť zariadenie na chrániči. Tým sa vyskúša:",
                     options: [
                         "či ochrana pracuje",
                         "či je chránič spojený s pomocným zemničom",
                         "či je zariadenie funkčné"
                     ],
-                    correct: [0,1], type: "multi"
+                    correct: [0], type: "single"
                 },
                 {
                     id: "B_6", chapter: "B",
-                    question: "Pri skúšaní ochrany napäťovým chráničom",
+                    question: "Pri skúšaní ochrany napäťovým chráničom:",
                     options: [
-                        "chránený predmet sa spojí cez rezistor R s neuzemneným krajným vodičom medzi chráničom a predmetom",
-                        "chránený predmet sa spojí cez rezistor R s uzemneným krajným vodičom",
-                        "chránený predmet sa spojí cez rezistor R s neuzemneným vodičom medzi chráničom a sondou"
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s jedným neuzemneným krajným vodičom medzi chráničom a elektrickým predmetom",
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s uzemneným krajným vodičom medzi chráničom a elektrickým predmetom",
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s jedným neuzemneným krajným vodičom medzi chráničom a sondou"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_7", chapter: "B",
-                    question: "Pri skúšaní ochrany napäťovým chráničom sa voltmetrom meria napätie medzi",
+                    question: "Pri skúšaní ochrany napäťovým chráničom voltmeter V s vnútorným odporom Rv > 3 000 Ω použijeme na meranie napätia medzi:",
                     options: [
                         "sondou a zemničom",
                         "elektrickým predmetom a sondou S",
                         "elektrickým predmetom a zemničom"
                     ],
-                    correct: [1], type: "single"
+                    correct: [2], type: "single"
                 },
                 {
                     id: "B_8", chapter: "B",
-                    question: "Sonda pri skúšaní ochrany napäťovým chráničom má byť vzdialená od pomocného zemniča",
-                    options: ["20 m", "2 m", "200 m"],
+                    question: "Pri skúšaní ochrany napäťovým chráničom má byť sonda vzdialená od pomocného zemniča:",
+                    options: [
+                        "20 m",
+                        "2 m",
+                        "200 m"
+                    ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_9", chapter: "B",
-                    question: "Odpor R sa pri skúšaní ochrany napäťovým chráničom volí tak, aby napätie bolo",
+                    question: "Pri skúšaní ochrany napäťovým chráničom odpor R zvolíme tak, aby na elektrickom predmete vzniklo napätie, ktorého hodnota je:",
                     options: [
-                        "omnoho menšie ako dovolené dotykové napätie",
-                        "omnoho väčšie ako dovolené dotykové napätie",
-                        "rovné sieťovému napätiu"
+                        "omnoho menšia ako dovolené dotykové napätie",
+                        "omnoho väčšia ako dovolené dotykové napätie",
+                        "omnoho menšia ako sieťové napätie"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_10", chapter: "B",
-                    question: "Pri zmenšovaní odporu R musí napäťový chránič vypnúť",
+                    question: "Pri skúšaní ochrany napäťovým chráničom pri zmenšovaní odporu R musí chránič vypnúť:",
                     options: [
-                        "skôr ako napätie prekročí dovolené dotykové napätie",
-                        "neskôr ako napätie prekročí dovolené dotykové napätie",
-                        "až po prekročení sieťového napätia"
+                        "skôr ako napätie na elektrickom predmete prekročí dovolené dotykové napätie",
+                        "neskôr ako napätie na elektrickom predmete prekročí dovolené dotykové napätie",
+                        "skôr ako napätie na elektrickom predmete prekročí sieťové napätie"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_11", chapter: "B",
-                    question: "Pri meraní odporu uzemnenia musíme merať",
+                    question: "Pri meraní odporu uzemnenia musíme merať:",
                     options: [
-                        "striedavým prúdom",
-                        "jednosmerným prúdom",
-                        "ľubovoľným prúdom"
+                        "striedavým prúdom lebo pri meraní jednosmerným prúdom sa môže uplatniť polarizácia elektród",
+                        "jednosmerným prúdom lebo pri meraní striedavým prúdom sa môže uplatniť polarizácia elektród",
+                        "ľubovoľným prúdom podľa typu ampérmetra"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_12", chapter: "B",
-                    question: "Odpor uzemnenia závisí od",
+                    question: "Pri meraní odporu uzemnenia je odpor uzemnenia sústredený v okolí uzemňovača, ktorého veľkosť závisí od:",
                     options: [
-                        "mernej vodivosti zeme",
-                        "tvaru a rozmerov uzemňovača",
-                        "prúdu pretekajúceho uzemňovačom"
+                        "mernej vodivosti zeme v okolí uzemňovača",
+                        "od tvaru a rozmerov uzemňovača",
+                        "prúdu pretekaného uzemňovačom"
                     ],
                     correct: [0,1], type: "multi"
                 },
                 {
                     id: "B_13", chapter: "B",
-                    question: "Napätie pri meraní odporu uzemnenia meriame",
+                    question: "Pri meraní odporu uzemnenia možno odmerať napätie voči ktorémukoľvek uzemňovaču:",
                     options: [
-                        "špeciálnym voltmetrom",
-                        "napäťovou sondou medzi uzemňovačmi",
-                        "sondou medzi krajnými vodičmi"
+                        "pomocou špeciálneho voltmetra",
+                        "pomocou napäťovej sondy položenej medzi oboma uzemňovačmi",
+                        "pomocou napäťovej sondy položenej medzi krajnými vodičmi"
                     ],
                     correct: [1], type: "single"
                 },
                 {
                     id: "B_14", chapter: "B",
-                    question: "Z nameraného napätia vieme vypočítať",
+                    question: "Ak pri meraní odporu uzemnenia odmeriame napätie voči ktorémukoľvek uzemňovaču, vieme následne vypočítať:",
                     options: [
                         "odpor uzemnenia",
                         "odpor krajných vodičov",
@@ -950,97 +1058,101 @@
                 },
                 {
                     id: "B_15", chapter: "B",
-                    question: "Pri meraní ochrany v sieti TN sa impedancia slučky meria",
+                    question: "Pri meraní ochrany v sieti TN možno impedanciu vypínacej slučky merať:",
                     options: [
                         "ohmetrom",
-                        "špeciálnymi meracími prístrojmi",
+                        "špeciálnymi na tento účel vyvinutými meracími prístrojmi",
                         "V-A metódou"
                     ],
                     correct: [1], type: "single"
                 },
                 {
                     id: "B_16", chapter: "B",
-                    question: "Merací prístroj sa pri meraní v sieti TN pripája",
+                    question: "Pri meraní ochrany v sieti TN sa merací prístroj pripojí:",
                     options: [
                         "medzi dve fázy",
                         "medzi sondu a krajný vodič",
-                        "medzi fázový vodič L a neživú časť zariadenia"
+                        "jedným pólom k fázovému vodiču siete a druhým pólom na neživú časť kontrolovaného zariadenia"
                     ],
                     correct: [2], type: "single"
                 },
                 {
                     id: "B_17", chapter: "B",
-                    question: "Pri meraní ochrany v sieti TN",
+                    question: "Pri meraní ochrany v sieti TN:",
                     options: [
                         "pracuje sa s jednosmerným napätím",
                         "pracuje sa s malým napätím",
-                        "ide o priame meranie v sieti nn"
+                        "ide o priame meranie v sieti nn preto treba zachovať zvýšenú opatrnosť"
                     ],
                     correct: [2], type: "single"
                 },
                 {
                     id: "B_18", chapter: "B",
-                    question: "Na meracom prístroji v sieti TN odčítame",
+                    question: "Pri meraní ochrany v sieti TN odčítame priamo na meracom prístroji:",
                     options: [
-                        "hodnotu Zv",
-                        "napätie UL-N alebo UL-PE",
-                        "prevádzkový prúd"
+                        "hodnotu Zv (impedanciu slučky)",
+                        "údaj o napätí UL-N alebo UL-PE",
+                        "hodnotu prevádzkového prúdu"
                     ],
-                    correct: [0,1], type: "multi"
+                    correct: [1], type: "single"
                 },
                 {
                     id: "B_19", chapter: "B",
-                    question: "Pri skúšaní ochrany prúdovým chráničom",
+                    question: "Pri skúšaní ochrany prúdovým chráničom:",
                     options: [
-                        "chránený predmet sa spojí cez rezistor R s neuzemneným krajným vodičom medzi chráničom a predmetom",
-                        "chránený predmet sa spojí cez rezistor R s uzemneným krajným vodičom",
-                        "chránený predmet sa spojí cez rezistor R s neuzemneným vodičom medzi chráničom a sondou"
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s jedným neuzemneným krajným vodičom medzi chráničom a elektrickým predmetom",
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s uzemneným krajným vodičom medzi chráničom a elektrickým predmetom",
+                        "chránený elektrický predmet sa spojí cez vhodný rezistor R s jedným neuzemneným krajným vodičom medzi chráničom a sondou"
                     ],
-                    correct: [0], type: "single"
+                    correct: [1], type: "single"
                 },
                 {
                     id: "B_20", chapter: "B",
-                    question: "Pri skúšaní ochrany prúdovým chráničom sa ampérmetrom zisťuje",
+                    question: "Pri skúšaní ochrany prúdovým chráničom sa ampérmetrom A odmeria, či:",
                     options: [
-                        "či chránič funguje",
-                        "či chránič vypína pri udanom poruchovom prúde",
-                        "či chránič vypína pri prevádzkovom prúde"
+                        "chránič funguje",
+                        "chránič vypína pri udanom poruchovom prúde",
+                        "chránič vypína pri prevádzkovom prúde"
                     ],
                     correct: [1], type: "single"
                 },
                 {
                     id: "B_21", chapter: "B",
-                    question: "Pri skúšaní ochrany prúdovým chráničom voltmetrom meriame napätie medzi",
+                    question: "Pri skúšaní ochrany prúdovým chráničom voltmeter V s vnútorným odporom Rv > 3 000 Ω použijeme na meranie napätia medzi:",
                     options: [
                         "sondou a zemničom",
                         "elektrickým predmetom a sondou S",
                         "elektrickým predmetom a zemničom"
                     ],
-                    correct: [1], type: "single"
+                    correct: [2], type: "single"
                 },
                 {
                     id: "B_22", chapter: "B",
-                    question: "Sonda pri skúšaní ochrany prúdovým chráničom má byť vzdialená od pomocného zemniča",
-                    options: ["20 m", "2 m", "200 m"],
-                    correct: [0], type: "single"
+                    question: "Pri skúšaní ochrany prúdovým chráničom má byť sonda vzdialená od pomocného zemniča:",
+                    options: [
+                        "20 m",
+                        "2 m",
+                        "200 m"
+                    ],
+                    correct: [1], type: "single"
                 },
                 {
                     id: "B_23", chapter: "B",
-                    question: "Odpor R sa pri skúšaní ochrany prúdovým chráničom volí tak, aby napätie bolo",
+                    question: "Pri skúšaní ochrany prúdovým chráničom odpor R zvolíme tak, aby na elektrickom predmete vzniklo napätie, ktorého hodnota je:",
                     options: [
-                        "omnoho menšie ako dovolené dotykové napätie",
-                        "omnoho väčšie ako dovolené dotykové napätie",
-                        "rovné sieťovému napätiu"
+                        "omnoho menšia ako dovolené dotykové napätie",
+                        "omnoho väčšia ako dovolené dotykové napätie",
+                        "omnoho menšia ako sieťové napätie"
                     ],
                     correct: [0], type: "single"
                 },
                 {
                     id: "B_24", chapter: "B",
-                    question: "Pri zmenšovaní odporu R musí prúdový chránič vypnúť",
+                    question: "Pri skúšaní ochrany prúdovým chráničom pri zmenšovaní odporu R musí chránič vypnúť:",
                     options: [
-                        "skôr ako napätie prekročí dovolené dotykové napätie",
-                        "neskôr ako napätie prekročí dovolené dotykové napätie",
-                        "až po prekročení sieťového napätia"
+                        "skôr ako napätie na elektrickom predmete prekročí dovolené dotykové napätie",
+                        "neskôr ako napätie na elektrickom predmete prekročí dovolené dotykové napätie",
+                        "skôr ako napätie na elektrickom predmete prekročí sieťové napätie"
                     ],
                     correct: [0], type: "single"
                 }
