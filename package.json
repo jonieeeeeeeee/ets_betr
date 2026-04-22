@@ -1,0 +1,17 @@
+{
+  "name": "ets-betr",
+  "version": "1.0.0",
+  "description": "ELTEC Certifikačný systém | Vyhláška 508/2009",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static HTML'",
+    "lint": "echo 'No linting configured'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
